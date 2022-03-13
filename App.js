@@ -38,7 +38,7 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ 
   learnSelection: {
     paddingVertical: 30,
     marginBottom: 55,
@@ -73,8 +73,8 @@ const styles = StyleSheet.create({
   },
   bottomMenu: {
     flexDirection: 'row',
-    marginTop: -70,
-    height: 70,
+    marginTop: -60,
+    height: 60,
     borderTopColor: '#666',
     borderTopWidth: 2,
     backgroundColor: 'white',
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   textMenu: {
     fontSize: 17,
     fontFamily: 'Asap_700Bold',
-    lineHeight: 70,
+    lineHeight: 60,
     textAlign: 'center',
     textTransform: 'capitalize',
     color: 'black'
