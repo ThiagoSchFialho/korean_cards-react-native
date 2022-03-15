@@ -1,44 +1,106 @@
 import React from 'react';
-import { StyleSheet, ScrollView, StatusBar, Text, View } from 'react-native';
+import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback, Alert } from 'react-native';
 import { useFonts, Asap_400Regular, Asap_700Bold} from '@expo-google-fonts/asap';
+import AppLoading from 'expo-app-loading';
 import { textShadowColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
 
-
-export default function App() {
+const App = () => {
   let [fontsLoaded] = useFonts({
     Asap_400Regular,
     Asap_700Bold,
   });
+  if (!fontsLoaded) {
+    return <AppLoading/>;
+  }
+
 
   return (
     <View>
+      
       <ScrollView style={styles.learnSelection}>
         <View style={styles.learnMenu}>
-          <View style={styles.theme}><Text style={styles.text}>casa</Text></View>
-          <View style={styles.theme}><Text style={styles.text}>escola</Text></View>
-          <View style={styles.theme}><Text style={styles.text}>praia</Text></View>
-          <View style={styles.theme}><Text style={styles.text}>trabalho</Text></View>
-          <View style={styles.theme}><Text style={styles.text}>animais</Text></View>
-          <View style={styles.theme}><Text style={styles.text}>mercado</Text></View>
-          <View style={styles.theme}><Text style={styles.text}>cozinha</Text></View>
-          <View style={styles.theme}><Text style={styles.text}>cores</Text></View>
-          <View style={styles.theme}><Text style={styles.text}>escritorio</Text></View>
-          <View style={styles.theme}><Text style={styles.text}>escola</Text></View>
-          <View style={styles.theme}><Text style={styles.text}>parque</Text></View>
-          <View style={styles.theme}><Text style={styles.text}>cinema</Text></View> 
+
+          <View style={styles.theme}>
+            <Text style={styles.text}>
+              casa
+            </Text>
+          </View>
+
+          <View style={styles.theme}>
+            <Text style={styles.text}>
+              comida
+            </Text>
+          </View>
+
+          <View style={styles.theme}>
+            <Text style={styles.text}>
+              trabalho
+            </Text>
+          </View>
+
+          <View style={styles.theme}>
+            <Text style={styles.text}>
+              compras
+            </Text>
+          </View>
+
+          <View style={styles.theme}>
+            <Text style={styles.text}>
+              educação
+            </Text>
+          </View>
+
+          <View style={styles.theme}>
+            <Text style={styles.text}>
+              transporte
+            </Text>
+          </View>
+
+          <View style={styles.theme}>
+            <Text style={styles.text}>
+              pessoas
+            </Text>
+          </View>
+
+          <View style={styles.theme}>
+            <Text style={styles.text}>
+              aparência
+            </Text>
+          </View>
+
+          <View style={styles.theme}>
+            <Text style={styles.text}>
+              lazer
+            </Text>
+          </View>
+
+          <View style={styles.theme}>
+            {/* <TouchableWithoutFeedback onPress={() => Alert.alert('alk')}>
+            </TouchableWithoutFeedback>; */}
+          </View>
+
         </View>
       </ScrollView>
 
       <View style={styles.bottomMenu}>
-        <View style={styles.viewMenu1}><Text style={styles.textMenu}>aprender</Text></View>
-        <View style={styles.viewMenu2}><Text style={styles.textMenu}>praticar</Text></View>
+        <View style={styles.viewMenu1}>
+          <Text style={styles.textMenu}>
+            aprender
+          </Text>
+        </View>
+
+        <View style={styles.viewMenu2}>
+          <Text style={styles.textMenu}>
+            praticar
+          </Text>
+        </View>
       </View>
 
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({ 
+const styles = StyleSheet.create({
   learnSelection: {
     paddingVertical: 30,
     marginBottom: 55,
@@ -50,6 +112,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 40,
     marginHorizontal: 50,
+    backgroundColor: 'red',
     justifyContent: 'space-between'
   },
   theme: {
@@ -75,17 +138,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: -60,
     height: 60,
-    borderTopColor: '#666',
+    borderTopColor: '#444',
     borderTopWidth: 2,
     backgroundColor: 'white',
   },
   viewMenu1: {
-    borderRightColor: '#555',
+    borderRightColor: '#444',
     borderRightWidth: 1,
     width: '50%'
   },
   viewMenu2: {
-    borderLeftColor: '#555',
+    borderLeftColor: '#444',
     borderLeftWidth: 1,
     width: '50%'
   },
@@ -98,3 +161,6 @@ const styles = StyleSheet.create({
     color: 'black'
   }
 });
+
+
+export default App;
