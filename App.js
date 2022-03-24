@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, ScrollView, Text, View, TouchableWithoutFeedback, Pressable } from 'react-native';
 import { useFonts, Asap_400Regular, Asap_700Bold} from '@expo-google-fonts/asap';
 import AppLoading from 'expo-app-loading';
 import { textShadowColor } from 'react-native/Libraries/Components/View/ReactNativeStyleAttributes';
+
+const Theme = ({title}) => (
+    <View style={styles.themeContainer}>
+      <Pressable
+        onPress={() => alert(<Text>{title}</Text>)}
+        style={({ pressed }) => [
+          {
+            marginTop: pressed ? 5 : 0,
+            marginBottom: pressed ? 45 : 50
+          },
+          styles.theme
+          ]}>
+          <Text style={styles.text}>
+            {title}
+          </Text>
+      </Pressable>
+    </View>
+);
 
 const App = () => {
   //O trecho de codigo visto abaixo é usado para carregar corretamente as fontes personalizadas
@@ -20,165 +38,16 @@ const App = () => {
       <ScrollView style={styles.learnSelection}>
         <View style={styles.learnMenu}>
 
-        <View style={styles.themeContainer}>
-          <Pressable
-            onPress={() => alert('casa')}
-            style={({ pressed }) => [
-              {
-                marginTop: pressed ? 5 : 0,
-                marginBottom: pressed ? 45 : 50
-              },
-              styles.theme
-          ]}>
-          <Text style={styles.text}>
-            casa
-          </Text>
-                </Pressable>
-        </View>
-
-        <View style={styles.themeContainer}>
-          <Pressable
-            onPress={() => alert('comida')}
-            style={({ pressed }) => [
-              {
-                marginTop: pressed ? 5 : 0,
-                marginBottom: pressed ? 45 : 50
-              },
-              styles.theme
-          ]}>
-          <Text style={styles.text}>
-            comida
-          </Text>
-                </Pressable>
-        </View>
-
-        <View style={styles.themeContainer}>
-          <Pressable
-            onPress={() => alert('trabalho')}
-            style={({ pressed }) => [
-              {
-                marginTop: pressed ? 5 : 0,
-                marginBottom: pressed ? 45 : 50
-              },
-              styles.theme
-          ]}>
-          <Text style={styles.text}>
-            trabalho
-          </Text>
-                </Pressable>
-        </View>
-
-        <View style={styles.themeContainer}>
-          <Pressable
-            onPress={() => alert('compras')}
-            style={({ pressed }) => [
-              {
-                marginTop: pressed ? 5 : 0,
-                marginBottom: pressed ? 45 : 50
-              },
-              styles.theme
-          ]}>
-          <Text style={styles.text}>
-            compras
-          </Text>
-                </Pressable>
-        </View>
-
-        <View style={styles.themeContainer}>
-          <Pressable
-            onPress={() => alert('educação')}
-            style={({ pressed }) => [
-              {
-                marginTop: pressed ? 5 : 0,
-                marginBottom: pressed ? 45 : 50
-              },
-              styles.theme
-          ]}>
-          <Text style={styles.text}>
-            educação
-          </Text>
-                </Pressable>
-        </View>
-
-        <View  style={styles.themeContainer}>
-          <Pressable
-            onPress={() => alert('transporte')}
-            style={({ pressed }) => [
-              {
-                marginTop: pressed ? 5 : 0,
-                marginBottom: pressed ? 45 : 50
-              },
-              styles.theme
-          ]}>
-          <Text style={styles.text}>
-            transporte
-          </Text>
-                </Pressable>
-        </View>
-
-        <View style={styles.themeContainer}>
-          <Pressable
-            onPress={() => alert('pessoas')}
-            style={({ pressed }) => [
-              {
-                marginTop: pressed ? 5 : 0,
-                marginBottom: pressed ? 45 : 50
-              },
-              styles.theme
-          ]}>
-          <Text style={styles.text}>
-            pessoas
-          </Text>
-                </Pressable>
-        </View>
-
-        <View style={styles.themeContainer}>
-          <Pressable
-            onPress={() => alert('aparência')}
-            style={({ pressed }) => [
-              {
-                marginTop: pressed ? 5 : 0,
-                marginBottom: pressed ? 45 : 50
-              },
-              styles.theme
-          ]}>
-          <Text style={styles.text}>
-            aparência
-          </Text>
-                </Pressable>
-        </View>
-
-        <View style={styles.themeContainer}>
-          <Pressable
-            onPress={() => alert('lazer')}
-            style={({ pressed }) => [
-              {
-                marginTop: pressed ? 5 : 0,
-                marginBottom: pressed ? 45 : 50
-              },
-              styles.theme
-          ]}>
-          <Text style={styles.text}>
-            lazer
-          </Text>
-                </Pressable>
-        </View>
-
-        <View style={styles.themeContainer}>
-          <Pressable
-            onPress={() => alert('básico')}
-            style={({ pressed }) => [
-              {
-                marginTop: pressed ? 5 : 0,
-                marginBottom: pressed ? 45 : 50
-              },
-              styles.theme
-          ]}>
-            <Text style={styles.text}>
-              básico
-            </Text>
-          </Pressable>
-        </View>
+          <Theme title='casa'/>
+          <Theme title='comida'/>
+          <Theme title='trabalho'/>
+          <Theme title='compras'/>
+          <Theme title='educação'/>
+          <Theme title='transporte'/>
+          <Theme title='pessoas'/>
+          <Theme title='aparência'/>
+          <Theme title='lazer'/>
+          <Theme title='básico'/>
 
         </View>
       </ScrollView>
@@ -210,7 +79,7 @@ const styles = StyleSheet.create({
   learnSelection: {
     paddingVertical: 30,
     marginBottom: 55,
-    backgroundColor: '#F2923F',
+    backgroundColor: '#eea533'
   },
   learnMenu: {
     flexDirection: 'row',
@@ -221,7 +90,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   themeContainer: {
-    borderBottomColor: '#444',
+    borderBottomColor: '#bfbfbf',
     borderBottomWidth: 50,
     borderRadius: 20,
     marginBottom: 50,
