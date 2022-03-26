@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { useFonts, Asap_400Regular, Asap_700Bold} from '@expo-google-fonts/asap';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import AppLoading from 'expo-app-loading';
 
 import LearnScreen from './screens/learn';
@@ -33,7 +34,33 @@ function LearnScreens() {
 const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
-  <Tab.Navigator>
+  <Tab.Navigator
+    screenOptions={({route}) => ({
+      tabBarStyle: {
+        height: 60,
+      },
+      tabBarLabelStyle: {
+        marginTop: -10,
+        padding: 5
+      },
+      tabBarIcon: ({ focused, size, color}) => {
+        let iconName;
+        size = 30;
+        
+        if (route.name == 'Aprender') {
+          iconName = 'book';
+          //color = focused ? '#dF9246' : 'grey';
+
+        } else if (route.name == 'Praticar') {
+          iconName = 'copy';
+          //color = focused ? '#905ca0' : 'grey';
+        }
+        return (
+          <Ionicons name={iconName} size={size} color={color}/>
+        )
+      }
+    })}
+  >
     <Tab.Screen name='Aprender' component={LearnScreens} options={{ headerStyle:{height: 0}}}/>
     <Tab.Screen name='Praticar' component={PracticeScreens} options={{ headerStyle:{height: 0}}}/>
   </Tab.Navigator>
