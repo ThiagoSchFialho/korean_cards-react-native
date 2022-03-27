@@ -102,43 +102,43 @@ const COZINHA = [
 const SALADEESTAR = [
   {
     id: "1",
-    title: "Porta\n\n",
+    title: "Sofá\n\n소파",
   },
   {
     id: "2",
-    title: "Janela\n\n",
+    title: "parede\n\n벽",
   },
   {
     id: "3",
-    title: "Garagem\n\n",
+    title: "teto\n\n천장",
   },
   {
     id: "4",
-    title: "Telhado\n\n",
+    title: "Quadro\n\n그림",
   },
   {
     id: "5",
-    title: "Antena\n\n",
+    title: "Lareira\n\n벽난로",
   },
   {
     id: "6",
-    title: "Varanda\n\n",
+    title: "Escadaria\n\n계단",
   },
   {
     id: "7",
-    title: "Chaminé\n\n",
+    title: "Poltrona\n\n안락의자",
   },
   {
     id: "8",
-    title: "Rede de dormir\n\n",
+    title: "Estante\n\n책장",
   },
   {
     id: "9",
-    title: "Grama\n\n",
+    title: "Televisão\n\n텔레비전",
   },
   {
     id: "10",
-    title: "Churrasqueira\n\n",
+    title: "Controle remoto\n\n리모콘",
   },
 ];
 
@@ -254,32 +254,36 @@ function chageList(title){
   return(data);
 }
 
-const Theme = ({title}) => {
-  return(
-    <View style={styles.themeContainer}>
-      <Pressable
-        onPress={() => chageList(title)}
-        style={({ pressed }) => [
-          {
-            marginTop: pressed ? 5 : 0,
-            marginBottom: pressed ? 45 : 50
-          },
-          styles.theme
-          ]}>
-          <Text style={styles.text}>
-            {title}
-          </Text>
-      </Pressable>
-    </View>
-  );
-}
-
-function LearnListScreen() {
+function LearnListScreen({ route }) {
   const renderItem = ({ item }) => (
     <Item title={item.title} />
   );
-  
-  var list = "quarto";
+
+  const { tema } = route.params;
+
+  var list = ['casa', 'cozinha', 'sala de estar', 'quarto', 'banheiro'];
+  const [currentList, setCurrentList] = useState(0);
+  var index = currentList;
+
+  const Theme = (props) => {
+    return(
+      <View style={styles.themeContainer}>
+        <Pressable
+          onPress={() => setCurrentList(props.index)}
+          style={({ pressed }) => [
+            {
+              marginTop: pressed ? 5 : 0,
+              marginBottom: pressed ? 45 : 50
+            },
+            styles.theme
+            ]}>
+            <Text style={styles.text}>
+              {props.title}
+            </Text>
+        </Pressable>
+      </View>
+    );
+  }
 
   return(
     <View>
@@ -287,23 +291,25 @@ function LearnListScreen() {
 
         <View style={{backgroundColor: '#ce8135'}}>
           <Text style={styles.titleTheme}>
-            casa
+            {tema}
           </Text>
         </View>
         <ScrollView horizontal={true} style={styles.themeSelection}>
-            <Theme title='casa'/>
-            <Theme title='cozinha'/>
-            <Theme title='sala de estar'/>
-            <Theme title='quarto'/>
-            <Theme title='banheiro'/>
+
+          <Theme title="casa" index={0}/>
+          <Theme title="cozinha" index={1}/>
+          <Theme title="sala de estar" index={2}/>
+          <Theme title="quarto" index={3}/>
+          <Theme title="banheiro" index={4}/>
+
         </ScrollView>
 
         <Text style={styles.listTitle}>
-          {list}
+          {list[index]}
         </Text>
         <View style={styles.listContainer}>
           <FlatList
-            data={chageList(list)}
+            data={chageList(list[index])}
             renderItem={renderItem}
             keyExtractor={item => item.id}
           />
