@@ -53,7 +53,7 @@ function MyTabs() {
         marginTop: -10,
         padding: 5
       },
-      tabBarIcon: ({ focused, size, color}) => {
+      tabBarIcon: ({ size, color }) => {
         let iconName;
         size = 30;
         

@@ -2,8 +2,8 @@ import React from 'react';
 import { ScrollView, Text, View, Pressable } from 'react-native';
 import styles from '../styles/practiceListStyles';
 
-const Theme = ({title}) => (
-  <View style={styles.themeContainer}>
+const List = ({title}) => (
+  <View style={styles.listContainer}>
     <Pressable
       onPress={() => alert(title)}
       style={({ pressed }) => [
@@ -11,7 +11,7 @@ const Theme = ({title}) => (
           marginTop: pressed ? 5 : 0,
           marginBottom: pressed ? 45 : 50
         },
-        styles.theme
+        styles.list
         ]}>
         <Text style={styles.text}>
           {title}
@@ -23,14 +23,14 @@ const Theme = ({title}) => (
 function PracticeListScreen() {
   return(
     <View>
-      <ScrollView style={styles.themeSelection}>
-        <View style={styles.themeMenu}>
+      <ScrollView style={styles.listSelection}>
+        <View style={styles.listMenu}>
 
-          <Theme title='casa'/>
-          <Theme title='cozinha'/>
-          <Theme title='sala de estar'/>
-          <Theme title='quarto'/>
-          <Theme title='banheiro'/>
+          <List title='casa'/>
+          <List title='cozinha'/>
+          <List title='sala de estar'/>
+          <List title='quarto'/>
+          <List title='banheiro'/>
 
         </View>
       </ScrollView>

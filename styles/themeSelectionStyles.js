@@ -9,16 +9,18 @@ const styles = StyleSheet.create({
     },
     theme: {
       height: 150,
-      padding: 5,
+      padding: 1,
       marginBottom: 30,
       borderRadius: 5,
-      backgroundColor: 'white',
+      backgroundColor: 'black',
+      borderWidth: 4,
+      borderColor: 'white'
     },
     image: {
       height: 140,
       padding: 15,
       marginBottom: 25,
-      borderRadius: 10
+      borderRadius: 10,
     },
     text: {
       width: 100,
@@ -26,7 +28,7 @@ const styles = StyleSheet.create({
       paddingHorizontal: 4,
       backgroundColor: 'white',
       borderColor: 'black',
-      borderWidth: 2,
+      borderWidth: 1,
       borderRadius: 5,
       fontSize: 17,
       fontFamily: 'Asap_700Bold',

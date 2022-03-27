@@ -257,7 +257,7 @@ function chageList(title){
 
 function LearnListScreen({ route }) {
   const renderItem = ({ item }) => (
-    <Item title={item.title} />
+    <Item title={item.title}/>
   );
 
   const { tema } = route.params;
@@ -266,9 +266,9 @@ function LearnListScreen({ route }) {
   const [currentList, setCurrentList] = useState(0);
   var index = currentList;
 
-  const Theme = (props) => {
+  const ListButton = (props) => {
     return(
-      <View style={styles.themeContainer}>
+      <View style={styles.listButtonContainer}>
         <Pressable
           onPress={() => setCurrentList(props.index)}
           style={({ pressed }) => [
@@ -276,7 +276,7 @@ function LearnListScreen({ route }) {
               marginTop: pressed ? 5 : 0,
               marginBottom: pressed ? 45 : 50
             },
-            styles.theme
+            styles.listButton
             ]}>
             <Text style={styles.text}>
               {props.title}
@@ -295,13 +295,13 @@ function LearnListScreen({ route }) {
             {tema}
           </Text>
         </View>
-        <ScrollView horizontal={true} style={styles.themeSelection}>
+        <ScrollView horizontal={true} style={styles.listSelection}>
 
-          <Theme title="casa" index={0}/>
-          <Theme title="cozinha" index={1}/>
-          <Theme title="sala de estar" index={2}/>
-          <Theme title="quarto" index={3}/>
-          <Theme title="banheiro" index={4}/>
+          <ListButton title="casa" index={0}/>
+          <ListButton title="cozinha" index={1}/>
+          <ListButton title="sala de estar" index={2}/>
+          <ListButton title="quarto" index={3}/>
+          <ListButton title="banheiro" index={4}/>
 
         </ScrollView>
 

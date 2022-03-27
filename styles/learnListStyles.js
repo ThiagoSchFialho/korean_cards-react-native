@@ -13,13 +13,13 @@ const styles = StyleSheet.create({
         textTransform: 'capitalize',
         color: 'white',
     },
-    themeSelection: {
+    listSelection: {
         backgroundColor: '#ce8135',
         paddingTop: 20,
         borderBottomColor: '#424242',
         borderBottomWidth: 1
     },
-    themeContainer: {
+    listButtonContainer: {
         borderBottomColor: '#bfbfbf',
         borderBottomWidth: 50,
         borderRadius: 20,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         width: 120,
         height: 110,
     },
-    theme: {
+    listButton: {
         backgroundColor: 'white',
         borderRadius: 20,
         height: 105,

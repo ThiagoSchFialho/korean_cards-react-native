@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-    themeSelection: {
+    listSelection: {
         height: '100%',
         paddingVertical: 30,
         backgroundColor: '#905ca0'
     },
-    themeMenu: {
+    listMenu: {
         flexDirection: 'row',
         flexWrap: 'wrap',
         marginTop: 30,
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 50,
         justifyContent: 'space-between'
     },
-    themeContainer: {
+    listContainer: {
         borderBottomColor: '#bfbfbf',
         borderBottomWidth: 50,
         borderRadius: 20,
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         width: '40%',
         height: 110,
     },
-    theme: {
+    list: {
         backgroundColor: 'white',
         borderRadius: 20,
         height: 105,
