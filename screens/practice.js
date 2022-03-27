@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, ImageBackground, ScrollView, Text, View, TouchableOpacity } from 'react-native';
+import { ImageBackground, ScrollView, Text, View, TouchableOpacity } from 'react-native';
+import styles from '../styles/themeSelectionStyles'
 
 function PracticeScreen({navigation}) {
   return(
     <View>
-      <ScrollView style={styles.themeSelection}>
+      <ScrollView style={{backgroundColor: '#905ca0'}}>
         <View style={styles.themeMenu}>
 
         <View>
@@ -103,45 +104,5 @@ function PracticeScreen({navigation}) {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  themeSelection: {
-    paddingVertical: 20,
-    backgroundColor: '#905ca0'
-  },
-  themeMenu: {
-    flexDirection: 'column',
-    marginTop: 20,
-    marginBottom: 40,
-    marginHorizontal: 25,
-  },
-  theme: {
-    height: 150,
-    padding: 5,
-    marginBottom: 30,
-    borderRadius: 5,
-    backgroundColor: 'white',
-  },
-  image: {
-    height: 140,
-    padding: 15,
-    marginBottom: 25,
-    borderRadius: 10
-  },
-  text: {
-    width: 100,
-    paddingVertical: 2,
-    paddingHorizontal: 4,
-    backgroundColor: 'white',
-    borderColor: 'black',
-    borderWidth: 2,
-    borderRadius: 5,
-    fontSize: 17,
-    fontFamily: 'Asap_700Bold',
-    textTransform: 'capitalize',
-    textAlign: 'center',
-    color: 'black',
-  }
-});
 
 export default PracticeScreen;

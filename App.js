@@ -8,9 +8,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AppLoading from 'expo-app-loading';
 
 import LearnScreen from './screens/learn';
-import LearnListScreen from './screens/learn_list';
+import LearnListScreen from './screens/learnList';
 import PracticeScreen from './screens/practice';
-import PracticeListScreen from './screens/practice_list';
+import PracticeListScreen from './screens/practiceList';
 
 const Stack = createNativeStackNavigator();
 function PracticeScreens() {
@@ -59,11 +59,9 @@ function MyTabs() {
         
         if (route.name == 'Aprender') {
           iconName = 'book';
-          //color = focused ? '#dF9246' : 'grey';
 
         } else if (route.name == 'Praticar') {
           iconName = 'copy';
-          //color = focused ? '#905ca0' : 'grey';
         }
         return (
           <Ionicons name={iconName} size={size} color={color}/>
