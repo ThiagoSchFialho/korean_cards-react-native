@@ -4,7 +4,7 @@ import { StyleSheet, ScrollView, Text, View, Pressable } from 'react-native';
 const Theme = ({title}) => (
   <View style={styles.themeContainer}>
     <Pressable
-      onPress={() => alert(<Text>{title}</Text>)}
+      onPress={() => alert(title)}
       style={({ pressed }) => [
         {
           marginTop: pressed ? 5 : 0,

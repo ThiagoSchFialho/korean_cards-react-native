@@ -2,39 +2,13 @@ import React from 'react';
 import { StyleSheet, ImageBackground, ScrollView, Text, View, TouchableOpacity } from 'react-native';
 
 function LearnScreen({ navigation }) {
-  // const Theme = ({title}) => {
-  //   return(
-  //     <View>
-  //         <TouchableOpacity onPress={() => navigation.navigate('Lista de palavras', {lista: {title} })}>
-  //           <View style={styles.theme}>
-  //             <ImageBackground source={require("../assets/background/" + title +".jpg")} resizeMode="cover" style={styles.image}>
-  //               <Text style={styles.text}>{title}</Text>
-  //             </ImageBackground>
-  //           </View>
-  //         </TouchableOpacity>
-  //       </View>
-  //   );
-  // }
-
   return(
     <View>
-
       <ScrollView style={styles.themeSelection}>
         <View style={styles.themeMenu}>
 
-        {/* <Theme title='casa'/>
-        <Theme title='comida'/>
-        <Theme title='trabalho'/>
-        <Theme title='compras'/>
-        <Theme title='educação'/>
-        <Theme title='transporte'/>
-        <Theme title='pessoas'/>
-        <Theme title='aparência'/>
-        <Theme title='lazer'/>
-        <Theme title='básico'/> */}
-
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('Lista de palavras', {lista: 'casa' })}>
+          <TouchableOpacity onPress={() => navigation.navigate('WordList', {tema: 'casa' })}>
             <View style={styles.theme}>
               <ImageBackground source={require("../assets/background/casa.jpg")} resizeMode="cover" style={styles.image}>
                 <Text style={styles.text}>casa</Text>
@@ -43,7 +17,7 @@ function LearnScreen({ navigation }) {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('Lista de palavras', {lista: 'comida' })}>
+          <TouchableOpacity onPress={() => navigation.navigate('WordList', {tema: 'comida' })}>
             <View style={styles.theme}>
               <ImageBackground source={require("../assets/background/comida.jpg")} resizeMode="cover" style={styles.image}>
                 <Text style={styles.text}>comida</Text>
@@ -52,7 +26,7 @@ function LearnScreen({ navigation }) {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('Lista de palavras', {lista: 'trabalho' })}>
+          <TouchableOpacity onPress={() => navigation.navigate('WordList', {tema: 'trabalho' })}>
             <View style={styles.theme}>
               <ImageBackground source={require("../assets/background/trabalho.jpg")} resizeMode="cover" style={styles.image}>
                 <Text style={styles.text}>trabalho</Text>
@@ -61,7 +35,7 @@ function LearnScreen({ navigation }) {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('Lista de palavras', {lista: 'compras' })}>
+          <TouchableOpacity onPress={() => navigation.navigate('WordList', {tema: 'compras' })}>
             <View style={styles.theme}>
               <ImageBackground source={require("../assets/background/compras.jpg")} resizeMode="cover" style={styles.image}>
                 <Text style={styles.text}>compras</Text>
@@ -70,7 +44,7 @@ function LearnScreen({ navigation }) {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('Lista de palavras', {lista: 'educação' })}>
+          <TouchableOpacity onPress={() => navigation.navigate('WordList', {tema: 'educação' })}>
             <View style={styles.theme}>
               <ImageBackground source={require("../assets/background/educação.jpg")} resizeMode="cover" style={styles.image}>
                 <Text style={styles.text}>educação</Text>
@@ -79,7 +53,7 @@ function LearnScreen({ navigation }) {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('Lista de palavras', {lista: 'transporte' })}>
+          <TouchableOpacity onPress={() => navigation.navigate('WordList', {tema: 'transporte' })}>
             <View style={styles.theme}>
               <ImageBackground source={require("../assets/background/transporte.jpg")} resizeMode="cover" style={styles.image}>
                 <Text style={styles.text}>transporte</Text>
@@ -88,7 +62,7 @@ function LearnScreen({ navigation }) {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('Lista de palavras', {lista: 'pessoas' })}>
+          <TouchableOpacity onPress={() => navigation.navigate('WordList', {tema: 'pessoas' })}>
             <View style={styles.theme}>
               <ImageBackground source={require("../assets/background/pessoas.jpg")} resizeMode="cover" style={styles.image}>
                 <Text style={styles.text}>pessoas</Text>
@@ -97,7 +71,7 @@ function LearnScreen({ navigation }) {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('Lista de palavras', {lista: 'aparência' })}>
+          <TouchableOpacity onPress={() => navigation.navigate('WordList', {tema: 'aparência' })}>
             <View style={styles.theme}>
               <ImageBackground source={require("../assets/background/aparência.jpg")} resizeMode="cover" style={styles.image}>
                 <Text style={styles.text}>aparência</Text>
@@ -106,7 +80,7 @@ function LearnScreen({ navigation }) {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('Lista de palavras', {lista: 'lazer' })}>
+          <TouchableOpacity onPress={() => navigation.navigate('WordList', {tema: 'lazer' })}>
             <View style={styles.theme}>
               <ImageBackground source={require("../assets/background/lazer.jpg")} resizeMode="cover" style={styles.image}>
                 <Text style={styles.text}>lazer</Text>
@@ -115,7 +89,7 @@ function LearnScreen({ navigation }) {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity onPress={() => navigation.navigate('Lista de palavras', {lista: 'básico' })}>
+          <TouchableOpacity onPress={() => navigation.navigate('WordList', {tema: 'básico' })}>
             <View style={styles.theme}>
               <ImageBackground source={require("../assets/background/básico.jpg")} resizeMode="cover" style={styles.image}>
                 <Text style={styles.text}>básico</Text>
@@ -144,7 +118,7 @@ const styles = StyleSheet.create({
   theme: {
     height: 150,
     padding: 5,
-    marginBottom: 25,
+    marginBottom: 30,
     borderRadius: 5,
     backgroundColor: 'white',
   },

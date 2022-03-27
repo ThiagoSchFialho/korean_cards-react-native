@@ -15,18 +15,28 @@ import PracticeListScreen from './screens/practice_list';
 const Stack = createNativeStackNavigator();
 function PracticeScreens() {
   return(
-    <Stack.Navigator>
-      <Stack.Screen name="Praticar" component={PracticeScreen}/>
-      <Stack.Screen name="Lista de cartões" component={PracticeListScreen}/>
+    <Stack.Navigator
+      screenOptions={() => ({
+        title: 'Aprender',
+        headerTitleAlign: 'center',
+      })}
+    >
+      <Stack.Screen name="Practice" component={PracticeScreen}/>
+      <Stack.Screen name="CardList" component={PracticeListScreen}/>
     </Stack.Navigator>
   );
 }
 
 function LearnScreens() {
   return(
-    <Stack.Navigator>
-      <Stack.Screen name="Aprender" component={LearnScreen}/>
-      <Stack.Screen name="Lista de palavras" component={LearnListScreen}/>
+    <Stack.Navigator
+      screenOptions={() => ({
+        title: 'Aprender',
+        headerTitleAlign: 'center',
+      })}
+    >
+      <Stack.Screen name="Learn" component={LearnScreen}/>
+      <Stack.Screen name="WordList" component={LearnListScreen}/>
     </Stack.Navigator>
   );
 }
