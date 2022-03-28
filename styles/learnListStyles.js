@@ -7,9 +7,9 @@ const styles = StyleSheet.create({
     titleTheme: {
         textAlign: 'center',
         marginTop: 20,
-        marginBottom: 10,
+        marginBottom: 5,
         fontSize: 25,
-        fontFamily: 'Asap_700Bold',
+        fontFamily: 'Poppins_700Bold',
         textTransform: 'capitalize',
         color: 'white',
     },
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         marginBottom: 30,
         marginHorizontal: 18,
-        width: 120,
+        width: 124,
         height: 110,
     },
     listButton: {
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 17,
-        fontFamily: 'Asap_700Bold',
+        fontFamily: 'Poppins_500Medium',
         lineHeight: 110,
         textAlign: 'center',
         textTransform: 'capitalize',
@@ -48,23 +48,23 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 20,
         textDecorationLine: 'underline',
-        fontFamily: 'Asap_700Bold'
+        fontFamily: 'Poppins_700Bold'
     },
     listContainer: {
         paddingTop: 20,
         paddingBottom: 35
     },
     listItem: {
-        paddingVertical: 10,
         marginVertical: 20,
         marginHorizontal: 50,
         borderRadius: 15,
         backgroundColor: 'white',
     },
     itemTitle: {
+        lineHeight: 50,
         textAlign: 'center',
-        fontFamily: 'Asap_700Bold',
-        fontSize: 18,
+        fontFamily: 'Poppins_500Medium',
+        fontSize: 21,
     }
 });
 

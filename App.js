@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { useFonts, Asap_400Regular, Asap_700Bold} from '@expo-google-fonts/asap';
+import { useFonts, Poppins_500Medium, Poppins_700Bold } from '@expo-google-fonts/poppins';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AppLoading from 'expo-app-loading';
 
@@ -17,8 +17,11 @@ function PracticeScreens() {
   return(
     <Stack.Navigator
       screenOptions={() => ({
-        title: 'Aprender',
+        title: 'Praticar',
         headerTitleAlign: 'center',
+        headerTitleStyle: {
+          fontFamily: 'Poppins_700Bold'
+        }
       })}
     >
       <Stack.Screen name="Practice" component={PracticeScreen}/>
@@ -33,6 +36,9 @@ function LearnScreens() {
       screenOptions={() => ({
         title: 'Aprender',
         headerTitleAlign: 'center',
+        headerTitleStyle: {
+          fontFamily: 'Poppins_700Bold'
+        }
       })}
     >
       <Stack.Screen name="Learn" component={LearnScreen}/>
@@ -51,7 +57,8 @@ function MyTabs() {
       },
       tabBarLabelStyle: {
         marginTop: -10,
-        padding: 5
+        padding: 5,
+        fontFamily: 'Poppins_700Bold'
       },
       tabBarIcon: ({ size, color }) => {
         let iconName;
@@ -78,8 +85,8 @@ function MyTabs() {
 const App = () => {
   //O trecho de codigo visto abaixo é usado para carregar corretamente as fontes personalizadas
   let [fontsLoaded] = useFonts({
-    Asap_400Regular,
-    Asap_700Bold,
+    Poppins_500Medium,
+    Poppins_700Bold
   });
   if (!fontsLoaded) {
     return <AppLoading/>;

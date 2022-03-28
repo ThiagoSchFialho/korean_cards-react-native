@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 50,
         borderRadius: 20,
         marginBottom: 50,
-        width: '40%',
+        width: '41%',
         height: 110,
     },
     list: {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 17,
-        fontFamily: 'Asap_700Bold',
+        fontFamily: 'Poppins_500Medium',
         lineHeight: 110,
         textAlign: 'center',
         textTransform: 'capitalize',

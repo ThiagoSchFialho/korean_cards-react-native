@@ -5,237 +5,292 @@ import styles from '../styles/learnListStyles'
 const CASA = [
   {
     id: "1",
-    title: "Porta\n\n문",
+    word: "Porta",
+    translation: "문",
   },
   {
     id: "2",
-    title: "Janela\n\n창문",
+    word: "Janela",
+    translation: "창문",
   },
   {
     id: "3",
-    title: "Garagem\n\n차고",
+    word: "Garagem",
+    translation: "차고",
   },
   {
     id: "4",
-    title: "Telhado\n\n지붕",
+    word: "Telhado",
+    translation: "지붕",
   },
   {
     id: "5",
-    title: "Antena\n\n안테나",
+    word: "Antena",
+    translation: "안테나",
   },
   {
     id: "6",
-    title: "Varanda\n\n발코니",
+    word: "Varanda",
+    translation: "발코니",
   },
   {
     id: "7",
-    title: "Chaminé\n\n굴뚝",
+    word: "Chaminé",
+    translation: "굴뚝",
   },
   {
     id: "8",
-    title: "Rede de dormir\n\n해먹",
+    word: "Rede de dormir",
+    translation: "해먹",
   },
   {
     id: "9",
-    title: "Grama\n\n그램",
+    word: "Grama",
+    translation: "그램",
   },
   {
     id: "10",
-    title: "Churrasqueira\n\n바베큐 그릴",
+    word: "Churrasqueira",
+    translation: "바베큐 그릴",
   },
 ];
 
 const COZINHA = [
   {
     id: "1",
-    title: "Micro-ondas\n\n전자레인지",
+    word: "Micro-ondas",
+    translation: "전자레인지",
   },
   {
     id: "2",
-    title: "Panela\n\n냄비",
+    word: "Panela",
+    translation: "냄비",
   },
   {
     id: "3",
-    title: "Abridor de latas\n\n깡통따개",
+    word: "Abridor de latas",
+    translation: "깡통따개",
   },
   {
     id: "4",
-    title: "Escorredor de pratos\n\n접시 랙",
+    word: "Escorredor de pratos",
+    translation: "접시 랙",
   },
   {
     id: "5",
-    title: "Máquina de lavar louça\n\n식기세척기",
+    word: "Máquina de lavar louça",
+    translation: "식기세척기",
   },
   {
     id: "6",
-    title: "Detergente\n\n주방세제",
+    word: "Detergente",
+    translation: "주방세제",
   },
   {
     id: "7",
-    title: "Esponja\n\n스펀지",
+    word: "Esponja",
+    translation: "스펀지",
   },
   {
     id: "8",
-    title: "Liquidificador\n\n믹서기",
+    word: "Liquidificador",
+    translation: "믹서기",
   },
   {
     id: "9",
-    title: "Torradeira\n\n토스트기",
+    word: "Torradeira",
+    translation: "토스트기",
   },
   {
     id: "10",
-    title: "Tábua de corte\n\n도마",
+    word: "Tábua de corte",
+    translation: "도마",
   },
   {
     id: "11",
-    title: "Geladeira\n\n냉장고",
+    word: "Geladeira",
+    translation: "냉장고",
   },
   {
     id: "12",
-    title: "Fogão\n\n전기 레인지",
+    word: "Fogão",
+    translation: "전기 레인지",
   },
   {
     id: "13",
-    title: "Forno\n\n오븐",
+    word: "Forno",
+    translation: "오븐",
   },
 ];
 
 const SALADEESTAR = [
   {
     id: "1",
-    title: "Sofá\n\n소파",
+    word: "Sofá",
+    translation: "소파",
   },
   {
     id: "2",
-    title: "parede\n\n벽",
+    word: "parede",
+    translation: "벽",
   },
   {
     id: "3",
-    title: "teto\n\n천장",
+    word: "teto",
+    translation: "천장",
   },
   {
     id: "4",
-    title: "Quadro\n\n그림",
+    word: "Quadro",
+    translation: "그림",
   },
   {
     id: "5",
-    title: "Lareira\n\n벽난로",
+    word: "Lareira",
+    translation: "벽난로",
   },
   {
     id: "6",
-    title: "Escadaria\n\n계단",
+    word: "Escadaria",
+    translation: "계단",
   },
   {
     id: "7",
-    title: "Poltrona\n\n안락의자",
+    word: "Poltrona",
+    translation: "안락의자",
   },
   {
     id: "8",
-    title: "Estante\n\n책장",
+    word: "Estante",
+    translation: "책장",
   },
   {
     id: "9",
-    title: "Televisão\n\n텔레비전",
+    word: "Televisão",
+    translation: "텔레비전",
   },
   {
     id: "10",
-    title: "Controle remoto\n\n리모콘",
+    word: "Controle remoto",
+    translation: "리모콘",
   },
 ];
 
 const QUARTO = [
   {
     id: "1",
-    title: "Cama\n\n침대",
+    word: "Cama",
+    translation: "침대",
   },
   {
     id: "2",
-    title: "Colchão\n\n매트리스",
+    word: "Colchão",
+    translation: "매트리스",
   },
   {
     id: "3",
-    title: "Travesseiro\n\n베개",
+    word: "Travesseiro",
+    translation: "베개",
   },
   {
     id: "4",
-    title: "Guarda roupa\n\n옷장",
+    word: "Guarda roupa",
+    translation: "옷장",
   },
   {
     id: "5",
-    title: "Cabide\n\n옷걸이",
+    word: "Cabide",
+    translation: "옷걸이",
   },
   {
     id: "6",
-    title: "Espelho\n\n거울",
+    word: "Espelho",
+    translation: "거울",
   },
   {
     id: "7",
-    title: "Despertador\n\n알람 시계",
+    word: "Despertador",
+    translation: "알람 시계",
   },
   {
     id: "8",
-    title: "Escrivaninha\n\n책상",
+    word: "Escrivaninha",
+    translation: "책상",
   },
   {
     id: "9",
-    title: "Cortina\n\n커튼",
+    word: "Cortina",
+    translation: "커튼",
   },
   {
     id: "10",
-    title: "Ar condicionado\n\n에어컨",
+    word: "Ar condicionado",
+    translation: "에어컨",
   },
 ];
 
 const BANHEIRO = [
   {
     id: "1",
-    title: "Privada\n\n변기",
+    word: "Privada",
+    translation: "변기",
   },
   {
     id: "2",
-    title: "Papel higiênico\n\n화장지",
+    word: "Papel higiênico",
+    translation: "화장지",
   },
   {
     id: "3",
-    title: "Pia\n\n세면대",
+    word: "Pia",
+    translation: "세면대",
   },
   {
     id: "4",
-    title: "Sabonete\n\n비누",
+    word: "Sabonete",
+    translation: "비누",
   },
   {
     id: "5",
-    title: "Shampoo\n\n샴푸",
+    word: "Shampoo",
+    translation: "샴푸",
   },
   {
     id: "6",
-    title: "Chuveiro\n\n샤워기",
+    word: "Chuveiro",
+    translation: "샤워기",
   },
   {
     id: "7",
-    title: "Banheira\n\n욕조",
+    word: "Banheira",
+    translation: "욕조",
   },
   {
     id: "8",
-    title: "Escova de dentes\n\n칫솔",
+    word: "Escova de dentes",
+    translation: "칫솔",
   },
   {
     id: "9",
-    title: "Pasta de dentes\n\n치약",
+    word: "Pasta de dentes",
+    translation: "치약",
   },
   {
     id: "10",
-    title: "Toalha\n\n수건",
+    word: "Toalha",
+    translation: "수건",
   },
   {
     id: "11",
-    title: "Secador de cabelo\n\n헤어 드라이어",
+    word: "Secador de cabelo",
+    translation: "헤어 드라이어",
   },
 ];
 
-const Item = ({ title }) => (
+const Item = ({ word, translation }) => (
   <View style={styles.listItem}>
-    <Text style={styles.itemTitle}>{title}</Text>
+    <Text style={styles.itemTitle}>{word}</Text>
+    <Text style={styles.itemTitle}>{translation}</Text>
   </View>
 );
 
@@ -257,7 +312,7 @@ function chageList(title){
 
 function LearnListScreen({ route }) {
   const renderItem = ({ item }) => (
-    <Item title={item.title}/>
+    <Item word={item.word} translation={item.translation}/>
   );
 
   const { tema } = route.params;
