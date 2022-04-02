@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { useFonts, Poppins_500Medium, Poppins_700Bold } from '@expo-google-fonts/poppins';
+import { useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_700Bold } from '@expo-google-fonts/poppins';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AppLoading from 'expo-app-loading';
 
@@ -85,6 +85,7 @@ function MyTabs() {
 const App = () => {
   //O trecho de codigo visto abaixo é usado para carregar corretamente as fontes personalizadas
   let [fontsLoaded] = useFonts({
+    Poppins_400Regular,
     Poppins_500Medium,
     Poppins_700Bold
   });

@@ -11,19 +11,23 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontFamily: 'Poppins_700Bold',
         textTransform: 'capitalize',
-        color: 'white',
+        textDecorationLine: 'underline',
+        color: 'white'
     },
+
+
+
     listSelection: {
-        backgroundColor: '#ce8135',
+        backgroundColor: '#c88236',
         paddingTop: 20,
         borderBottomColor: '#424242',
-        borderBottomWidth: 1
+        borderBottomWidth: 1,
     },
     listButtonContainer: {
         borderBottomColor: '#bfbfbf',
         borderBottomWidth: 50,
         borderRadius: 20,
-        marginBottom: 30,
+        marginBottom: 5,
         marginHorizontal: 18,
         width: 124,
         height: 110,
@@ -33,21 +37,26 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         height: 105,
     },
-    text: {
-        fontSize: 17,
-        fontFamily: 'Poppins_500Medium',
+    listButtonIcon: {
         lineHeight: 110,
+        textAlign: 'center',
+    },
+    text: {
+        fontSize: 16,
+        fontFamily: 'Poppins_400Regular',
         textAlign: 'center',
         textTransform: 'capitalize',
         color: 'black'
     },
+
+
+
     listTitle: {
         textTransform: 'capitalize',
         marginTop: 20,
         textAlign: 'center',
-        color: 'black',
+        color: '#222222',
         fontSize: 20,
-        textDecorationLine: 'underline',
         fontFamily: 'Poppins_700Bold'
     },
     listContainer: {
