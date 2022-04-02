@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ScrollView, Text, View, Pressable, FlatList } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from '../styles/learnListStyles';
 import { CASA, COZINHA, SALADEESTAR, QUARTO, BANHEIRO } from '../data/casaListData';
 import { FRUTAS, LEGUMES, BEBIDAS, PADARIA, SOBREMESAS } from '../data/comidaListData';
@@ -70,7 +70,6 @@ const Item = ({ word, translation }) => (
 //======================================================================
 function LearnListScreen({ route }) {
 
-  // Declaração de variaveis e constantes
   const { id, tema, nListas } = route.params;
 
   var listsIndex = [];
@@ -82,10 +81,23 @@ function LearnListScreen({ route }) {
     ['supermercado', 'farmácia', 'shopping center'],
     ['escola', 'matemática', 'geografia'],
     ['bicicleta', 'avião', 'caminhão', 'carro'],
-    ['família', 'emoções', 'corpo', 'corpo2'],
+    ['família', 'emoções', 'corpo', 'corpo 2'],
     ['roupas masculinas', 'roupas femininas', 'calçados', 'material', 'joias', 'acessórios'],
     ['praia', 'acampamento', 'teatro', 'jogos'],
     ['cores', 'animais', 'números']
+  ];
+
+  var icons = [
+    ['home', 'fridge', 'television-classic', 'bed', 'shower'],
+    ['food-apple', 'carrot', 'beer', 'baguette', 'cake'],
+    ['city-variant', 'desktop-tower-monitor', 'briefcase'],
+    ['cart', 'gamepad-round', 'escalator-up'],
+    ['book-open-page-variant', 'calculator-variant', 'earth'],
+    ['bicycle', 'airplane', 'truck', 'car'],
+    ['human-female-boy', 'emoticon-happy', 'human-handsdown', 'human-handsdown'],
+    ['human-male', 'human-female', 'shoe-formal', 'texture-box', 'diamond-stone', 'sunglasses'],
+    ['beach', 'campfire', 'drama-masks', 'google-controller'],
+    ['palette', 'dog-side', 'numeric']
   ];
 
   var data = [
@@ -108,12 +120,12 @@ function LearnListScreen({ route }) {
   const [currentList, setCurrentList] = useState(0);
   var index = currentList;
 
-  // Declaração de funções
+
   const renderItem = ({ item }) => (
     <Item word={item.word} translation={item.translation}/>
   );
 
-  const ListButton = ({ title, index} ) => {
+  const ListButton = ( {title, icon, index} ) => {
     return(
       <View style={{marginBottom: 15}}>
         <View style={styles.listButtonContainer}>
@@ -127,8 +139,7 @@ function LearnListScreen({ route }) {
               styles.listButton
               ]}>
               <Text style={styles.listButtonIcon}>
-                {/* <Ionicons name={props.icon} size={50} color='#373737'/> */}
-                {title}
+                <MaterialCommunityIcons name={icon} size={50} color='#373737'/>
               </Text>
           </Pressable>
         </View>
@@ -155,7 +166,7 @@ function LearnListScreen({ route }) {
         <ScrollView horizontal={true} style={styles.listSelection}>
           {listsIndex.map((item) => {
             return(
-              <ListButton title={lists[id][item]} index={item}/>
+              <ListButton title={lists[id][item]} icon={icons[id][item]} index={item}/>
             )
           })}
         </ScrollView>
