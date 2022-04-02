@@ -70,8 +70,10 @@ const Item = ({ word, translation }) => (
 //======================================================================
 function LearnListScreen({ route }) {
 
-  // Declaração de variaveis
+  // Declaração de variaveis e constantes
   const { id, tema, nListas } = route.params;
+
+  var listsIndex = [];
 
   var lists = [
     ['casa', 'cozinha', 'sala de estar', 'quarto', 'banheiro'],
@@ -98,6 +100,10 @@ function LearnListScreen({ route }) {
     [PRAIA, ACAMPAMENTO, TEATRO, JOGOS],
     [CORES, ANIMAIS, NUMEROS]
   ];
+
+  for (var i=0; i<nListas; i++){
+    listsIndex[i] = i;
+  }
 
   const [currentList, setCurrentList] = useState(0);
   var index = currentList;
@@ -136,48 +142,6 @@ function LearnListScreen({ route }) {
     );
   }
 
-  const ListButtons = ( {nLists} ) => {
-    if (nLists == 3){
-      return(
-        <ScrollView horizontal={true} style={styles.listSelection}>
-          <ListButton title={lists[id][0]} index={0}/>
-          <ListButton title={lists[id][1]} index={1}/>
-          <ListButton title={lists[id][2]} index={2}/>
-        </ScrollView>
-      );
-    } else if (nLists == 4){
-      return(
-        <ScrollView horizontal={true} style={styles.listSelection}>
-          <ListButton title={lists[id][0]} index={0}/>
-          <ListButton title={lists[id][1]} index={1}/>
-          <ListButton title={lists[id][2]} index={2}/>
-          <ListButton title={lists[id][3]} index={3}/>
-        </ScrollView>
-      );
-    } else if (nLists == 5){
-      return(
-        <ScrollView horizontal={true} style={styles.listSelection}>
-          <ListButton title={lists[id][0]} index={0}/>
-          <ListButton title={lists[id][1]} index={1}/>
-          <ListButton title={lists[id][2]} index={2}/>
-          <ListButton title={lists[id][3]} index={3}/>
-          <ListButton title={lists[id][4]} index={4}/>
-        </ScrollView>
-      );
-    } else if (nLists == 6){
-      return(
-        <ScrollView horizontal={true} style={styles.listSelection}>
-          <ListButton title={lists[id][0]} index={0}/>
-          <ListButton title={lists[id][1]} index={1}/>
-          <ListButton title={lists[id][2]} index={2}/>
-          <ListButton title={lists[id][3]} index={3}/>
-          <ListButton title={lists[id][4]} index={4}/>
-          <ListButton title={lists[id][5]} index={5}/>
-        </ScrollView>
-      );
-    }
-  }
-  
 //======================================================================
   return(
     <View>
@@ -188,12 +152,13 @@ function LearnListScreen({ route }) {
           </Text>
         </View>
 
-        <ListButtons nLists={nListas}/>
-        {/* {lists[id].map((item) => {
-          return(
-            <ListButton title={item} index={`${index+1}`}/>
-          )
-        })} */}
+        <ScrollView horizontal={true} style={styles.listSelection}>
+          {listsIndex.map((item) => {
+            return(
+              <ListButton title={lists[id][item]} index={item}/>
+            )
+          })}
+        </ScrollView>
 
         <Text style={styles.listTitle}>
           {lists[id][index]}
