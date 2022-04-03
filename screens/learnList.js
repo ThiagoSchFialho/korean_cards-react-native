@@ -139,7 +139,7 @@ function LearnListScreen({ route }) {
               styles.listButton
               ]}>
               <Text style={styles.listButtonIcon}>
-                <MaterialCommunityIcons name={icon} size={50} color='#373737'/>
+                <MaterialCommunityIcons name={icon} size={50} color='#202020'/>
               </Text>
           </Pressable>
         </View>

@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
     listButtonIcon: {
         lineHeight: 110,
-        textAlign: 'center',
+        textAlign: 'center'
     },
     text: {
         fontSize: 16,
