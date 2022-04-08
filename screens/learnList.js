@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ScrollView, Text, View, Pressable, FlatList } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from '../styles/learnListStyles';
+
 import { CASA, COZINHA, SALADEESTAR, QUARTO, BANHEIRO } from '../data/casaListData';
 import { FRUTAS, LEGUMES, BEBIDAS, PADARIA, SOBREMESAS } from '../data/comidaListData';
 import { ESCRITORIO, COMPUTADOR, PROFISSOES } from '../data/trabalhoListData';
@@ -155,33 +156,33 @@ function LearnListScreen({ route }) {
 
 //======================================================================
   return(
-    <View>
-      <ScrollView style={styles.MainContainer}>
-        <View style={{backgroundColor: '#c88236'}}>
-          <Text style={styles.titleTheme}>
-            {tema}
+    <View style={styles.listContainer}>
+      <FlatList
+        ListHeaderComponent={
+        <>
+          <View style={styles.headerContainer}>
+            <View style={{backgroundColor: '#dF9246'}}>
+              <Text style={styles.titleTheme}>
+                {tema}
+              </Text>
+            </View>
+
+            <ScrollView horizontal={true} style={styles.listSelection}>
+              {listsIndex.map(item =>
+                  <ListButton  key={item} title={lists[id][item]} icon={icons[id][item]} index={item}/>
+              )}
+            </ScrollView>
+          </View>
+
+          <Text style={styles.listTitle}>
+            {lists[id][index]}
           </Text>
-        </View>
 
-        <ScrollView horizontal={true} style={styles.listSelection}>
-          {listsIndex.map((item) => {
-            return(
-              <ListButton title={lists[id][item]} icon={icons[id][item]} index={item}/>
-            )
-          })}
-        </ScrollView>
-
-        <Text style={styles.listTitle}>
-          {lists[id][index]}
-        </Text>
-        <View style={styles.listContainer}>
-          <FlatList
-            data={data[id][index]}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-          />
-        </View>
-      </ScrollView>
+        </>}
+        data={data[id][index]}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        />
     </View>
   );
 };

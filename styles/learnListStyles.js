@@ -1,9 +1,15 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
-    MainContainer: {
+const styles = StyleSheet.create({    
+    listContainer: {
         backgroundColor: '#dF9246'
     },
+
+    headerContainer: {
+        elevation: 20,
+        borderBottomWidth: 0
+    },
+
     titleTheme: {
         textAlign: 'center',
         marginTop: 20,
@@ -12,16 +18,13 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins_700Bold',
         textTransform: 'capitalize',
         textDecorationLine: 'underline',
-        color: 'white'
+        color: '#000000',
     },
-
-
 
     listSelection: {
         backgroundColor: '#c88236',
-        paddingTop: 20,
-        borderBottomColor: '#424242',
-        borderBottomWidth: 1,
+        backgroundColor: '#dF9246',
+        paddingTop: 20
     },
     listButtonContainer: {
         borderBottomColor: '#bfbfbf',
@@ -54,14 +57,12 @@ const styles = StyleSheet.create({
     listTitle: {
         textTransform: 'capitalize',
         marginTop: 20,
+        marginBottom: 20,
         textAlign: 'center',
-        color: '#222222',
+        color: '#000000',
+        textDecorationLine: 'underline',
         fontSize: 20,
         fontFamily: 'Poppins_700Bold'
-    },
-    listContainer: {
-        paddingTop: 20,
-        paddingBottom: 35
     },
     listItem: {
         marginVertical: 20,

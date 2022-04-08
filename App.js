@@ -11,8 +11,10 @@ import LearnScreen from './screens/learn';
 import LearnListScreen from './screens/learnList';
 import PracticeScreen from './screens/practice';
 import PracticeListScreen from './screens/practiceList';
+import CardsScreen from './screens/cards';
 
 const Stack = createNativeStackNavigator();
+
 function PracticeScreens() {
   return(
     <Stack.Navigator
@@ -26,6 +28,7 @@ function PracticeScreens() {
     >
       <Stack.Screen name="Practice" component={PracticeScreen}/>
       <Stack.Screen name="CardList" component={PracticeListScreen}/>
+      <Stack.Screen name="Cards" component={CardsScreen}/>
     </Stack.Navigator>
   );
 }
@@ -38,7 +41,7 @@ function LearnScreens() {
         headerTitleAlign: 'center',
         headerTitleStyle: {
           fontFamily: 'Poppins_700Bold'
-        }
+        },
       })}
     >
       <Stack.Screen name="Learn" component={LearnScreen}/>
@@ -53,7 +56,7 @@ function MyTabs() {
   <Tab.Navigator
     screenOptions={({route}) => ({
       tabBarStyle: {
-        height: 60,
+        height: 60
       },
       tabBarLabelStyle: {
         marginTop: -10,
