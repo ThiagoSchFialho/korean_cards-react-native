@@ -71,7 +71,7 @@ const Item = ({ word, translation }) => (
 //======================================================================
 function LearnListScreen({ route }) {
 
-  const { id, tema, nListas } = route.params;
+  const { id, theme, nLists } = route.params;
 
   var listsIndex = [];
 
@@ -114,7 +114,7 @@ function LearnListScreen({ route }) {
     [CORES, ANIMAIS, NUMEROS]
   ];
 
-  for (var i=0; i<nListas; i++){
+  for (var i=0; i<nLists; i++){
     listsIndex[i] = i;
   }
 
@@ -163,7 +163,7 @@ function LearnListScreen({ route }) {
           <View style={styles.headerContainer}>
             <View style={{backgroundColor: '#dF9246'}}>
               <Text style={styles.titleTheme}>
-                {tema}
+                {theme}
               </Text>
             </View>
 

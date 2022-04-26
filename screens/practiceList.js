@@ -5,11 +5,11 @@ import styles from '../styles/practiceListStyles';
 
 function PracticeListScreen( {route, navigation} ) {
 
-  const { id, tema, nListas } = route.params;
+  const { id, theme, nLists } = route.params;
 
   var listsIndex = [];
 
-  for (var i=0; i<nListas; i++){
+  for (var i=0; i<nLists; i++){
     listsIndex[i] = i;
   }
 
@@ -39,10 +39,23 @@ function PracticeListScreen( {route, navigation} ) {
     ['palette', 'dog-side', 'numeric']
   ];
 
-  const CardsButton = ( {title, icon} ) => (
+  var nWords = [
+    ['casa', 'cozinha', 'sala de estar', 'quarto', 'banheiro'],
+    ['frutas', 'legumes', 'bebidas', 'padaria', 'sobremesas'],
+    ['escritório', 'computador', 'profissões'],
+    ['supermercado', 'farmácia', 'shopping center'],
+    ['escola', 'matemática', 'geografia'],
+    ['bicicleta', 'avião', 'caminhão', 'carro'],
+    ['família', 'emoções', 'corpo', 'corpo 2'],
+    ['roupas masculinas', 'roupas femininas', 'calçados', 'material', 'joias', 'acessórios'],
+    ['praia', 'acampamento', 'teatro', 'jogos'],
+    ['cores', 'animais', 'números']
+  ];
+
+  const CardsButton = ( {title, icon, nWords} ) => (
     <View style={styles.listContainer}>
       <Pressable
-        onPress={() => navigation.navigate('Cards', {lista: title })}
+        onPress={() => navigation.navigate('Cards', {list: title, nWords: nWords })}
         style={({ pressed }) => [
           {
             marginTop: pressed ? 5 : 0,
@@ -67,7 +80,7 @@ function PracticeListScreen( {route, navigation} ) {
 
           <ScrollView>
             {listsIndex.map(item =>
-                <CardsButton  key={item} title={lists[id][item]} icon={icons[id][item]}/>
+                <CardsButton  key={item} nWords={nWords[id][item]} title={lists[id][item]} icon={icons[id][item]}/>
             )}
           </ScrollView>
 
