@@ -39,17 +39,18 @@ function PracticeListScreen( {route, navigation} ) {
     ['palette', 'dog-side', 'numeric']
   ];
 
+  // número de palavras em cada lista de palavras
   var nWords = [
-    ['casa', 'cozinha', 'sala de estar', 'quarto', 'banheiro'],
-    ['frutas', 'legumes', 'bebidas', 'padaria', 'sobremesas'],
-    ['escritório', 'computador', 'profissões'],
-    ['supermercado', 'farmácia', 'shopping center'],
-    ['escola', 'matemática', 'geografia'],
-    ['bicicleta', 'avião', 'caminhão', 'carro'],
-    ['família', 'emoções', 'corpo', 'corpo 2'],
-    ['roupas masculinas', 'roupas femininas', 'calçados', 'material', 'joias', 'acessórios'],
-    ['praia', 'acampamento', 'teatro', 'jogos'],
-    ['cores', 'animais', 'números']
+    [10, 13, 10, 10, 11],
+    [12, 10, 9, 6, 8],
+    [14, 9, 11],
+    [10, 10, 14],
+    [0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0]
   ];
 
   const CardsButton = ( {title, icon, nWords} ) => (
@@ -80,7 +81,7 @@ function PracticeListScreen( {route, navigation} ) {
 
           <ScrollView>
             {listsIndex.map(item =>
-                <CardsButton  key={item} nWords={nWords[id][item]} title={lists[id][item]} icon={icons[id][item]}/>
+                <CardsButton  key={item} title={lists[id][item]} icon={icons[id][item]} nWords={nWords[id][item]}/>
             )}
           </ScrollView>
 

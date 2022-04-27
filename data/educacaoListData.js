@@ -1,8 +1,8 @@
 export const ESCOLA = [
     {
         id: "1",
-        word: "EM",
-        translation: "BREVE",
+        word: "EM BREVE",
+        translation: "",
     },
     {
         id: "2",
@@ -79,8 +79,8 @@ export const ESCOLA = [
 export const MATEMATICA = [
     {
         id: "1",
-        word: "EM",
-        translation: "BREVE",
+        word: "EM BREVE",
+        translation: "",
     },
     {
         id: "2",
@@ -157,8 +157,8 @@ export const MATEMATICA = [
 export const GEOGRAFIA = [
     {
         id: "1",
-        word: "EM",
-        translation: "BREVE",
+        word: "EM BREVE",
+        translation: "",
     },
     {
         id: "2",

@@ -14,53 +14,6 @@ import { ROUPASMASCULINAS, ROUPASFEMININAS, CALCADOS, MATERIAL, JOIAS, ACESSORIO
 import { PRAIA, ACAMPAMENTO, TEATRO, JOGOS } from '../data/lazerListData';
 import { CORES, ANIMAIS, NUMEROS } from '../data/basicoListData';
 
-//==============================================================================
-//============================== TESTES COM JSON ===============================
-//==============================================================================
-
-class Tema {
-  constructor(id, nome, listas) {
-    this.id = id;
-    this.nome = nome;
-    this.listas = listas;
-  }
-}
-class Lista {
-  constructor(nome, palavras, traducoes) {
-    this.nome = nome;
-    this.palavras = palavras;
-    this.traducoes = traducoes;
-  }
-}
-var quartoPalavras = ['Cama', 'Colchão', 'Travesseiro'];
-var quartoTraducoes = ['침대', '매트리스', '베개'];
-
-var cozinhaPalavras = ['Micro-ondas', 'Panela', 'Abridor de latas'];
-var cozinhaTraducoes = ['전자레인지', '냄비', '깡통따개'];
-
-const quarto = new Lista('quarto', quartoPalavras, quartoTraducoes)
-const cozinha = new Lista('cozinha', cozinhaPalavras, cozinhaTraducoes)
-
-var casa = [quarto, cozinha]
-
-let casaTema = new Tema(1, 'casa', casa);
-
-casaTemaStr = JSON.stringify(casaTema);
-
-// var fs = require('fs');
-// fs.appendFile('meu_json.json', casaTemaStr, function (err) {
-//   if (err) throw err;
-//   console.log('Arquivo Salvo!');
-// });
-
-const jsonData= require('./teste.json');
-//console.log(jsonData);
-
-
-//==============================================================================
-//==============================================================================
-//==============================================================================
-
 const Item = ({ word, translation }) => (
   <View style={styles.listItem}>
     <Text style={styles.itemTitle}>{word}</Text>
@@ -68,7 +21,6 @@ const Item = ({ word, translation }) => (
   </View>
 );
 
-//======================================================================
 function LearnListScreen({ route }) {
 
   const { id, theme, nLists } = route.params;
@@ -119,7 +71,6 @@ function LearnListScreen({ route }) {
   }
 
   const [currentList, setCurrentList] = useState(0);
-  var index = currentList;
 
 
   const renderItem = ({ item }) => (
@@ -175,11 +126,11 @@ function LearnListScreen({ route }) {
           </View>
 
           <Text style={styles.listTitle}>
-            {lists[id][index]}
+            {lists[id][currentList]}
           </Text>
 
         </>}
-        data={data[id][index]}
+        data={data[id][currentList]}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         />

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { backgroundColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
 const styles = StyleSheet.create({    
     mainView: {
@@ -14,11 +15,11 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     i: {
-        width: 35,
-        height: 35,
+        width: 35.4,
+        height: 35.6,
         position: 'absolute',
         left: 15,
-        borderRadius: 18,
+        borderRadius: 50,
         backgroundColor: 'white'
     },
     progress: {
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     },
     cardContainer: {
         marginTop: 60,
-        marginBottom: 70,
+        marginBottom: 60,
         height: 350,
         justifyContent: "center",
         alignItems: "center"
@@ -47,12 +48,15 @@ const styles = StyleSheet.create({
     cardText: {
         width: 300,
         color: '#202020',
-        fontSize: 45,
+        fontSize: 35,
         fontFamily:  'Poppins_400Regular',
         textAlign: 'center',
     },
+    nextContainer: {
+        paddingHorizontal: 130
+    },
     next: {
-        lineHeight: 35,
+        lineHeight: 50,
         color: 'white',
         fontSize: 25,
         fontFamily:  'Poppins_700Bold',
