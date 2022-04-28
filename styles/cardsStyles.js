@@ -22,12 +22,46 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         backgroundColor: 'white'
     },
+    modalContainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    modal: {
+        width: '80%',
+        padding: 25,
+        borderRadius: 20,
+        backgroundColor: '#ffffcc',
+        alignItems: 'center'
+    },
+    modalText: {
+        fontFamily: 'Poppins_400Regular',
+        fontSize: 25,
+        marginBottom: 20,
+        textAlign: "center",
+    },
+    modalConfirmation: {
+        width: '70%',
+        marginTop: 15,
+        borderRadius: 100,
+        backgroundColor: '#3399ff',
+    },
+    modalConfirmationText: {
+        paddingTop: 4,
+        textTransform: 'capitalize',
+        textAlign: 'center',
+        color: 'white',
+        lineHeight: 50,
+        fontFamily: 'Poppins_700Bold',
+        fontSize: 20,
+    },
     progress: {
         lineHeight: 35,
         color: 'white',
         fontSize: 25,
         fontFamily:  'Poppins_700Bold',
-        textAlign: 'center',
+        position: 'absolute',
+        right: '42%'
     },
     cardContainer: {
         marginTop: 60,

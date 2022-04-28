@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, Pressable, Modal, TouchableWithoutFeedback } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from '../styles/cardsStyles';
 
@@ -13,7 +13,6 @@ import { FAMILIA, EMOCOES, CORPO, CORPO2 } from '../data/pessoasListData';
 import { ROUPASMASCULINAS, ROUPASFEMININAS, CALCADOS, MATERIAL, JOIAS, ACESSORIOS } from '../data/aparenciaListData';
 import { PRAIA, ACAMPAMENTO, TEATRO, JOGOS } from '../data/lazerListData';
 import { CORES, ANIMAIS, NUMEROS } from '../data/basicoListData';
-import DeprecatedEdgeInsetsPropType from 'react-native/Libraries/DeprecatedPropTypes/DeprecatedEdgeInsetsPropType';
 
 lists = {"casa" : CASA,
         "cozinha" : COZINHA,
@@ -63,6 +62,7 @@ function CardsScreen( {route} ) {
     let word = '';
 
     const [currentWord, setCurrentWord] = useState(1);
+    const [modalVisible, setModalVisible] = useState(false);
 
     function GoNext() {
         if (currentWord < nWords){
@@ -80,10 +80,35 @@ function CardsScreen( {route} ) {
             </Text>
 
             <View>
-                <View style={styles.i}>
+                <Pressable
+                    style={styles.i}
+                    onPress={() => setModalVisible(true)}
+                >
                     <MaterialCommunityIcons name={'information'} size={35} color='#00a2e8'/>
-                </View>
-                <Text style={styles.progress}>{currentWord} / {nWords}</Text>
+                </Pressable>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={modalVisible}
+                    onRequestClose={() => { setModalVisible(!modalVisible) }}
+                >
+                    <View style={styles.modalContainer}>
+                        <View style={styles.modal}>
+                            <Text style={styles.modalText}>  Quando lembrar a tradução da palavra ou desistir, toque no cartão para gira-lo e ver a tradução da palavra.</Text>
+                            <Text style={styles.modalText}>  Toque em "Avançar" para ver o proximo cartão"</Text>
+                                <Pressable
+                                style={styles.modalConfirmation}
+                                onPress={() => setModalVisible(!modalVisible)}
+                                >
+                                    <Text style={styles.modalConfirmationText}>entendi</Text>
+                                </Pressable>
+                        </View>
+                    </View>
+                </Modal>
+            
+                <Text style={styles.progress}>
+                    {currentWord} / {nWords}
+                </Text>
             </View>
 
             <View style={styles.cardContainer}>
