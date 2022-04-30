@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     listSelection: {
         height: '100%',
-        paddingVertical: 30,
+        paddingTop: 40,
+        paddingBottom: 30,
         paddingHorizontal: 50,
         backgroundColor: '#905ca0'
     },

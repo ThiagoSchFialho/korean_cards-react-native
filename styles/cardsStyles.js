@@ -7,20 +7,20 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     title: {
-        marginTop: 10,
-        marginBottom: 15,
+        marginTop: 20,
+        marginBottom: 30,
         color: 'white',
         fontSize: 20,
         fontFamily: 'Poppins_700Bold',
         textAlign: 'center'
     },
-    i: {
+    informationButton: {
         width: 35.4,
         height: 35.6,
         position: 'absolute',
         left: 15,
         borderRadius: 50,
-        backgroundColor: 'white'
+        backgroundColor: 'black'
     },
     modalContainer: {
         flex: 1,
@@ -56,15 +56,15 @@ const styles = StyleSheet.create({
         fontSize: 20,
     },
     progress: {
+        marginHorizontal: 120,
         lineHeight: 35,
         color: 'white',
         fontSize: 25,
         fontFamily:  'Poppins_700Bold',
-        position: 'absolute',
-        right: '42%'
+        textAlign: 'center'
     },
     cardContainer: {
-        marginTop: 60,
+        marginTop: 70,
         marginBottom: 60,
         height: 350,
         justifyContent: "center",
@@ -89,13 +89,23 @@ const styles = StyleSheet.create({
     nextContainer: {
         paddingHorizontal: 130
     },
-    next: {
+    nextButton: {
         lineHeight: 50,
         color: 'white',
         fontSize: 25,
         fontFamily:  'Poppins_700Bold',
         textAlign: 'center',
         textTransform: 'capitalize'
+    },
+    leaveButton: {
+        lineHeight: 60,
+        fontSize: 40,
+        fontFamily:  'Poppins_700Bold',
+        textAlign: 'center',
+        textTransform: 'capitalize',
+        borderRadius: 5,
+        backgroundColor: '#99ff99',
+        color: '#339933',
     }
 });
 
