@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Animated, View, Text, Pressable, Modal, TouchableWithoutFeedback } from 'react-native';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -14,6 +14,7 @@ import { FAMILIA, EMOCOES, CORPO, CORPO2 } from '../data/pessoasListData';
 import { ROUPASMASCULINAS, ROUPASFEMININAS, CALCADOS, MATERIAL, JOIAS, ACESSORIOS } from '../data/aparenciaListData';
 import { PRAIA, ACAMPAMENTO, TEATRO, JOGOS } from '../data/lazerListData';
 import { CORES, ANIMAIS, NUMEROS } from '../data/basicoListData';
+import { registerAsset } from 'react-native-web/dist/cjs/modules/AssetRegistry';
 
 lists = {"casa" : CASA,
         "cozinha" : COZINHA,
@@ -65,45 +66,63 @@ function CardsScreen( {route, navigation} ) {
     let translation = '';
 
     const [currentWord, setCurrentWord] = useState(1);
-    const [modalVisible, setModalVisible] = useState(false);
-    const [WordsLeft, setWordsLeft] = useState(true);
+    const [infoCardVisible, setInfoCardVisible] = useState(false);
+    const [stayOrLeaveCardVisible, setStayOrLeaveCardVisible] = useState(false);
 
-    // Função para Alterar a palavra renderizada no cartão e para atualizar o painel que mostra o progresso
+    // Função para Alterar para a proxima palavra renderizada no cartão e para atualizar o painel que mostra o progresso
     function GoNext () {
-        if (currentWord < nWords){
+        if (currentWord < nWords) {
             setCurrentWord(currentWord+1);
+        } else {
+            setStayOrLeaveCardVisible(true);
         }
-        if (currentWord == nWords-1) {
-            setWordsLeft(false);
+    }
+
+    // Função para Alterar para a palavra anterio renderizada no cartão e para atualizar o painel que mostra o progresso
+    function GoBack () {
+        if (currentWord > 1) {
+            setCurrentWord(currentWord-1);
+        } else {
+            alert('Não há palavras anteriores a essa');
         }
+    }
+
+    // Função para recomeçar da primeiro palavra
+    function Restart () {
+        setCurrentWord(1);
+        setStayOrLeaveCardVisible(!stayOrLeaveCardVisible);
     }
     word = lists[list][currentWord-1]["word"];
     translation = lists[list][currentWord-1]["translation"];
 
     // ================================ Constante para configurar o modal que mostra informações sobre a tela
-    const InformationCard = () => (
+    const InfoCard = () => (
         <Modal
             animationType="slide"
             transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => { setModalVisible(!modalVisible) }}
+            visible={infoCardVisible}
+            onRequestClose={() => { setInfoCardVisible(!infoCardVisible) }}
         >
-            <View style={styles.modalContainer}>
-                <View style={styles.modal}>
-                    <Text style={styles.modalText}>
-                        Quando lembrar a tradução da palavra ou desistir, toque no cartão para gira-lo e ver a tradução da palavra.
+            <View style={styles.infoCardContainer}>
+                <View style={styles.infoCard}>
+                    <Text style={styles.infoCardText}>
+                        Quando lembrar a tradução da palavra ou desistir, toque no cartão para gira-lo, ver a resposta e ver se você acertou ou não.
                     </Text>
 
-                    <Text style={styles.modalText}>
-                        Toque em "Avançar" para ver o proximo cartão"
+                    <Text style={styles.infoCardText}>
+                        Toque em "Voltar" para ver o cartão anterior."
+                    </Text>
+
+                    <Text style={styles.infoCardText}>
+                        Toque em "Avançar" para ver o proximo cartão."
                     </Text>
 
                     {/* Botão para ocultar o modal */}
                     <Pressable
-                    style={styles.modalConfirmation}
-                    onPress={() => setModalVisible(!modalVisible)}
+                    style={styles.infoCardButton}
+                    onPress={() => setInfoCardVisible(!infoCardVisible)}
                     >
-                        <Text style={styles.modalConfirmationText}>entendi</Text>
+                        <Text style={styles.infoCardButtonText}>entendi</Text>
                     </Pressable>
                 </View>
             </View>
@@ -120,13 +139,13 @@ function CardsScreen( {route, navigation} ) {
             <View>
                 {/* Botão para exibir um modal com informações sobre a tela */}
                 <Pressable
-                    style={styles.informationButton}
-                    onPress={() => setModalVisible(true)}
+                    style={styles.infoButton}
+                    onPress={() => setInfoCardVisible(true)}
                 >
                     <MaterialCommunityIcons name={'information'} size={35} color='#00a2e8'/>
                 </Pressable>
             
-                <InformationCard/>
+                <InfoCard/>
             
                 {/* Display onde é mostrado o progresso das palavras */}
                 <Text style={styles.progress}>
@@ -219,34 +238,71 @@ function CardsScreen( {route, navigation} ) {
         </TouchableWithoutFeedback>
     );
 
-    // ================================ Constante para configurar a parte inferior da tela, onde é mostrado um botão para avançar para o proximo cartão ou para voltar à tela anterior
-    const NextButton = () => {
-        if (WordsLeft) {
-            return(
-                <View style={styles.nextContainer}>
-                    <TouchableWithoutFeedback onPress={() => GoNext()}>
-                        <Text style={styles.nextButton}>avançar</Text>
-                    </TouchableWithoutFeedback>
+    // ================================
+    const StayOrLeaveCard = () => (
+        <Modal
+            animationType="slide"
+            transparent={true}
+            visible={stayOrLeaveCardVisible}
+            onRequestClose={() => { setStayOrLeaveCardVisible(!stayOrLeaveCardVisible) }}
+        >
+            <View style={styles.stayOrLeaveCardContainer}>
+                <View style={styles.stayOrLeaveCard}>
+                    <Text style={styles.stayOrLeaveCardText}>
+                        Você já viu todas as palavras.
+                    </Text>
+
+                    <Text style={styles.stayOrLeaveCardText}>
+                        Quer recomeçar?
+                    </Text>
+
+                    {/* Botão para Recomeçar*/}
+                    <Pressable
+                    style={styles.stayOrLeaveCardButton}
+                    onPress={() => Restart()}
+                    >
+                        <Text style={styles.stayOrLeaveCardButtonText}>Recomeçar</Text>
+                    </Pressable>
+
+                    {/* Botão para sair*/}
+                    <Pressable
+                    style={styles.stayOrLeaveCardButton}
+                    onPress={() => navigation.goBack()}
+                    >
+                        <Text style={styles.stayOrLeaveCardButtonText}>sair</Text>
+                    </Pressable>
                 </View>
-            );
-        } else {
-            return(
-                <View style={styles.nextContainer}>
-                    <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
-                        <Text style={styles.leaveButton}>sair</Text>
-                    </TouchableWithoutFeedback>
-                </View>
-            );
-        }
+            </View>
+        </Modal>
+    )
+
+    // ================================ Constante para configurar a parte inferior da tela, onde é mostrado um botão para voltar e um botão para avançar para o proximo cartão ou para voltar à tela anterior
+    const ControlButtons = () => (
+        <View style={styles.controlButtonsContainer}>
+            <View style={styles.controlButton}>
+                <TouchableWithoutFeedback onPress={() => GoBack()}>
+                    <Text style={styles.controlButtonText}>voltar</Text>
+                </TouchableWithoutFeedback>
+            </View>
+
+            <View style={styles.controlButton}>
+                <TouchableWithoutFeedback onPress={() => GoNext()}>
+                    <Text style={styles.controlButtonText}>avançar</Text>
+                </TouchableWithoutFeedback>
+            </View>
+            
+            <StayOrLeaveCard/>
+        </View>
+
         
-    }
+    );
 
     // ================================ Retorno da função principal
     return(
         <View style={styles.mainView}>
             <CardsScreenHeader/>
             <Card word={word} translation={translation}/>
-            <NextButton/>
+            <ControlButtons/>
         </View>
     );
 };

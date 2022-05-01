@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
 
-    informationButton: {
+    infoButton: {
         width: 35.4,
         height: 35.6,
         position: 'absolute',
@@ -23,31 +23,31 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         backgroundColor: 'black'
     },
-    modalContainer: {
+    infoCardContainer: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
     },
-    modal: {
+    infoCard: {
         width: '80%',
         padding: 25,
         borderRadius: 20,
         backgroundColor: '#ffffcc',
         alignItems: 'center'
     },
-    modalText: {
+    infoCardText: {
         fontFamily: 'Poppins_400Regular',
-        fontSize: 25,
-        marginBottom: 20,
+        fontSize: 24,
+        marginBottom: 18,
         textAlign: "center",
     },
-    modalConfirmation: {
+    infoCardButton: {
         width: '70%',
         marginTop: 15,
         borderRadius: 100,
         backgroundColor: '#3399ff',
     },
-    modalConfirmationText: {
+    infoCardButtonText: {
         paddingTop: 4,
         textTransform: 'capitalize',
         textAlign: 'center',
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
 
     cardContainer: {
         marginTop: 70,
-        marginBottom: 60,
+        marginBottom: 80,
         marginHorizontal: 30,
         height: 350,
         justifyContent: "center",
@@ -104,10 +104,14 @@ const styles = StyleSheet.create({
         ]
     },
 
-    nextContainer: {
-        paddingHorizontal: 130
+    controlButtonsContainer: {
+        flexDirection: 'row',
     },
-    nextButton: {
+    controlButton: {
+        flex: 1,
+        margin: 15,
+    },
+    controlButtonText: {
         lineHeight: 50,
         color: 'white',
         fontSize: 25,
@@ -115,15 +119,40 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         textTransform: 'capitalize'
     },
-    leaveButton: {
-        lineHeight: 60,
-        fontSize: 40,
-        fontFamily:  'Poppins_700Bold',
-        textAlign: 'center',
+
+    stayOrLeaveCardContainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    stayOrLeaveCard: {
+        width: '80%',
+        padding: 25,
+        borderRadius: 20,
+        backgroundColor: '#3399ff',
+        alignItems: 'center'
+    },
+    stayOrLeaveCardText: {
+        fontFamily: 'Poppins_400Regular',
+        fontSize: 25,
+        marginBottom: 18,
+        textAlign: "center",
+        color: 'white',
+    },
+    stayOrLeaveCardButton: {
+        width: '70%',
+        marginTop: 15,
+        borderRadius: 100,
+        backgroundColor: '#ffffcc',
+    },
+    stayOrLeaveCardButtonText: {
+        paddingTop: 4,
         textTransform: 'capitalize',
-        borderRadius: 5,
-        backgroundColor: '#99ff99',
-        color: '#339933',
+        textAlign: 'center',
+        color: 'black',
+        lineHeight: 50,
+        fontFamily: 'Poppins_700Bold',
+        fontSize: 20,
     }
 });
 
