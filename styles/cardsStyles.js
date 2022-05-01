@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins_700Bold',
         textAlign: 'center'
     },
+
     informationButton: {
         width: 35.4,
         height: 35.6,
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins_700Bold',
         fontSize: 20,
     },
+
     progress: {
         marginHorizontal: 120,
         lineHeight: 35,
@@ -63,29 +65,45 @@ const styles = StyleSheet.create({
         fontFamily:  'Poppins_700Bold',
         textAlign: 'center'
     },
+
     cardContainer: {
         marginTop: 70,
         marginBottom: 60,
+        marginHorizontal: 30,
         height: 350,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
     },
     card: {
+        position: 'absolute',
         width: 300,
         height: 300,
         padding: 20,
         backgroundColor: 'white',
         borderRadius: 30,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
     },
-    cardText: {
+    cardTextWord: {
+        width: 300,
+        color: '#202020',
+        fontSize: 35,
+        fontFamily:  'Poppins_400Regular',
+        textAlign: 'center'
+    },
+    cardTextTranslation: {
         width: 300,
         color: '#202020',
         fontSize: 35,
         fontFamily:  'Poppins_400Regular',
         textAlign: 'center',
+        transform: [
+            {
+                rotateY: '180deg'
+            }
+        ]
     },
+
     nextContainer: {
         paddingHorizontal: 130
     },

@@ -26,14 +26,14 @@ function LearnListScreen({ route }) {
 
   const { id, theme, nLists } = route.params;
   const [currentList, setCurrentList] = useState(0);
-  var listsIndex = [];
+  let listsIndex = [];
   
-  for (var i=0; i<nLists; i++){
+  for (let i=0; i<nLists; i++){
     listsIndex[i] = i;
   }
 
   // Nomes das listas de cartões
-  var lists = [
+  let lists = [
     ['casa', 'cozinha', 'sala de estar', 'quarto', 'banheiro'],
     ['frutas', 'legumes', 'bebidas', 'padaria', 'sobremesas'],
     ['escritório', 'computador', 'profissões'],
@@ -47,7 +47,7 @@ function LearnListScreen({ route }) {
   ];
 
   // Icones das listas de cartões
-  var icons = [
+  let icons = [
     ['home', 'fridge', 'television-classic', 'bed', 'shower'],
     ['food-apple', 'carrot', 'beer', 'baguette', 'cake'],
     ['city-variant', 'desktop-tower-monitor', 'briefcase'],
@@ -61,7 +61,7 @@ function LearnListScreen({ route }) {
   ];
 
   // Constantes que guardam as palavras das listas
-  var data = [
+  let data = [
     [CASA, COZINHA, SALADEESTAR, QUARTO, BANHEIRO],
     [FRUTAS, LEGUMES, BEBIDAS, PADARIA, SOBREMESAS],
     [ESCRITORIO, COMPUTADOR, PROFISSOES],

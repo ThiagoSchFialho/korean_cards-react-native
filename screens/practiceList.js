@@ -6,14 +6,14 @@ import styles from '../styles/practiceListStyles';
 function PracticeListScreen( {route, navigation} ) {
 
   const { id, theme, nLists } = route.params;
-  var listsIndex = [];
-
-  for (var i=0; i<nLists; i++){
+  let listsIndex = [];
+  
+  for (let i=0; i<nLists; i++){
     listsIndex[i] = i;
   }
 
   // Nomes das listas de cartões
-  var lists = [
+  let lists = [
     ['casa', 'cozinha', 'sala de estar', 'quarto', 'banheiro'],
     ['frutas', 'legumes', 'bebidas', 'padaria', 'sobremesas'],
     ['escritório', 'computador', 'profissões'],
@@ -27,7 +27,7 @@ function PracticeListScreen( {route, navigation} ) {
   ];
 
   // Icones das listas de cartões
-  var icons = [
+  let icons = [
     ['home', 'fridge', 'television-classic', 'bed', 'shower'],
     ['food-apple', 'carrot', 'beer', 'baguette', 'cake'],
     ['city-variant', 'desktop-tower-monitor', 'briefcase'],
@@ -41,7 +41,7 @@ function PracticeListScreen( {route, navigation} ) {
   ];
 
   // Número de palavras em cada lista de palavras
-  var nWords = [
+  let nWords = [
     [10, 13, 10, 10, 11],
     [12, 10, 9, 6, 8],
     [14, 9, 11],
