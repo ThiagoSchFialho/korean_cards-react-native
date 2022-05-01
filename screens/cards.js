@@ -58,6 +58,7 @@ lists = {"casa" : CASA,
 
 function CardsScreen( {route, navigation} ) {
 
+    // Declarações de variaveis e constantes
     const { list, nWords } = route.params;
     let word = '';
 
@@ -65,6 +66,7 @@ function CardsScreen( {route, navigation} ) {
     const [modalVisible, setModalVisible] = useState(false);
     const [WordsLeft, setWordsLeft] = useState(true);
 
+    // Função para Alterar a palavra renderizada no cartão e para atualizar o painel que mostra o progresso
     function GoNext () {
         if (currentWord < nWords){
             setCurrentWord(currentWord+1);
@@ -75,6 +77,7 @@ function CardsScreen( {route, navigation} ) {
     }
     word = lists[list][currentWord-1]["word"];
 
+    // ================================ Constante para configurar o modal que mostra informações sobre a tela
     const InformationCard = () => (
         <Modal
             animationType="slide"
@@ -92,6 +95,7 @@ function CardsScreen( {route, navigation} ) {
                         Toque em "Avançar" para ver o proximo cartão"
                     </Text>
 
+                    {/* Botão para ocultar o modal */}
                     <Pressable
                     style={styles.modalConfirmation}
                     onPress={() => setModalVisible(!modalVisible)}
@@ -103,6 +107,7 @@ function CardsScreen( {route, navigation} ) {
         </Modal>
     );
 
+    // ================================ Constante para configurar o cabeçalho da tela
     const CardsScreenHeader = () => (
         <View>
             <Text style={styles.title}>
@@ -110,6 +115,7 @@ function CardsScreen( {route, navigation} ) {
             </Text>
             
             <View>
+                {/* Botão para exibir um modal com informações sobre a tela */}
                 <Pressable
                     style={styles.informationButton}
                     onPress={() => setModalVisible(true)}
@@ -119,6 +125,7 @@ function CardsScreen( {route, navigation} ) {
             
                 <InformationCard/>
             
+                {/* Display onde é mostrado o progresso das palavras */}
                 <Text style={styles.progress}>
                     {currentWord} / {nWords}
                 </Text>
@@ -126,6 +133,7 @@ function CardsScreen( {route, navigation} ) {
         </View>
     );
 
+    // ================================ Constante para configurar as animações que afetarão o cartão
     const turnAnim = useRef(new Animated.Value(0)).current;
     const turn = () => {
         Animated.timing(turnAnim, {
@@ -135,6 +143,7 @@ function CardsScreen( {route, navigation} ) {
         }).start();
     };
 
+    // ================================ Constante para configurar o catão onde serão mostradas as palavras e traduções
     const Card = () => (
         <View style={styles.cardContainer}>
             <Animated.View
@@ -150,6 +159,7 @@ function CardsScreen( {route, navigation} ) {
         </View>
     );
 
+    // ================================ Constante para configurar a parte inferior da tela, onde é mostrado um botão para avançar para o proximo cartão ou para voltar à tela anterior
     const NextButton = () => {
         if (WordsLeft) {
             return(
@@ -171,6 +181,7 @@ function CardsScreen( {route, navigation} ) {
         
     }
 
+    // ================================ Retorno da função principal
     return(
         <View style={styles.mainView}>
             <CardsScreenHeader/>

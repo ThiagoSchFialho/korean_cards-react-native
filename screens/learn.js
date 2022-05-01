@@ -17,21 +17,23 @@ const THEMES = [["casa", 5, require("../assets/background/casa.jpg")],
 
 function LearnScreen({ navigation }) {
 
+  // ================================ Constante para configurar o botão que levará para a tela "WordList" (lernList.js)
   const ThemeButton = ( {id} ) => {
     let image = THEMES[id][2];
     return(
       <View>
-      <TouchableOpacity onPress={() => navigation.navigate('WordList', { id: id, theme: THEMES[id][0], nLists: THEMES[id][1] })}>
-        <View style={styles.theme}>
-          <ImageBackground borderRadius={10} source={image} resizeMode="cover" style={styles.image}>
-            <Text style={styles.text}>{THEMES[id][0]}</Text>
-          </ImageBackground>
-        </View>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity onPress={() => navigation.navigate('WordList', { id: id, theme: THEMES[id][0], nLists: THEMES[id][1] })}>
+          <View style={styles.theme}>
+            <ImageBackground borderRadius={10} source={image} resizeMode="cover" style={styles.image}>
+              <Text style={styles.text}>{THEMES[id][0]}</Text>
+            </ImageBackground>
+          </View>
+        </TouchableOpacity>
+      </View>
     )
   }
 
+  // ================================ Retorno da função principal
   return(
     <View>
       <ScrollView style={{backgroundColor: '#dF9246'}}>

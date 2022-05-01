@@ -10,7 +10,6 @@ import PracticeListScreen from './screens/practiceList';
 import CardsScreen from './screens/cards';
 
 const Stack = createNativeStackNavigator();
-
 function PracticeScreens() {
   return(
     <Stack.Navigator

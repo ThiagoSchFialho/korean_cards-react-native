@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#dF9246',
         paddingTop: 20
     },
-    listButtonContainer: {
+    listSelectionButtonContainer: {
         borderBottomColor: '#bfbfbf',
         borderBottomWidth: 50,
         borderRadius: 20,
@@ -35,12 +35,12 @@ const styles = StyleSheet.create({
         width: 124,
         height: 110,
     },
-    listButton: {
+    listSelectionButton: {
         backgroundColor: 'white',
         borderRadius: 20,
         height: 105,
     },
-    listButtonIcon: {
+    listSelectionButtonIcon: {
         lineHeight: 110,
         textAlign: 'center'
     },

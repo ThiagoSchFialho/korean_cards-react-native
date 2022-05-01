@@ -14,6 +14,7 @@ import { ROUPASMASCULINAS, ROUPASFEMININAS, CALCADOS, MATERIAL, JOIAS, ACESSORIO
 import { PRAIA, ACAMPAMENTO, TEATRO, JOGOS } from '../data/lazerListData';
 import { CORES, ANIMAIS, NUMEROS } from '../data/basicoListData';
 
+// ================================ Constante para configurar como será renderizado cada item na FlatList
 const Item = ({ word, translation }) => (
   <View style={styles.listItem}>
     <Text style={styles.itemTitle}>{word}</Text>
@@ -24,9 +25,14 @@ const Item = ({ word, translation }) => (
 function LearnListScreen({ route }) {
 
   const { id, theme, nLists } = route.params;
-
+  const [currentList, setCurrentList] = useState(0);
   var listsIndex = [];
+  
+  for (var i=0; i<nLists; i++){
+    listsIndex[i] = i;
+  }
 
+  // Nomes das listas de cartões
   var lists = [
     ['casa', 'cozinha', 'sala de estar', 'quarto', 'banheiro'],
     ['frutas', 'legumes', 'bebidas', 'padaria', 'sobremesas'],
@@ -40,6 +46,7 @@ function LearnListScreen({ route }) {
     ['cores', 'animais', 'números']
   ];
 
+  // Icones das listas de cartões
   var icons = [
     ['home', 'fridge', 'television-classic', 'bed', 'shower'],
     ['food-apple', 'carrot', 'beer', 'baguette', 'cake'],
@@ -53,6 +60,7 @@ function LearnListScreen({ route }) {
     ['palette', 'dog-side', 'numeric']
   ];
 
+  // Constantes que guardam as palavras das listas
   var data = [
     [CASA, COZINHA, SALADEESTAR, QUARTO, BANHEIRO],
     [FRUTAS, LEGUMES, BEBIDAS, PADARIA, SOBREMESAS],
@@ -66,21 +74,16 @@ function LearnListScreen({ route }) {
     [CORES, ANIMAIS, NUMEROS]
   ];
 
-  for (var i=0; i<nLists; i++){
-    listsIndex[i] = i;
-  }
-
-  const [currentList, setCurrentList] = useState(0);
-
-
+  // ================================ Constante para configurar como será renderizado os itens na FlatList
   const renderItem = ({ item }) => (
     <Item word={item.word} translation={item.translation}/>
   );
 
-  const ListButton = ( {title, icon, index} ) => {
+  // ================================ Botão resposavel por mudar a lista de palavras renderizada na tela (seleção da lista)
+  const ListSelectionButton = ( {title, icon, index} ) => {
     return(
       <View style={{marginBottom: 15}}>
-        <View style={styles.listButtonContainer}>
+        <View style={styles.listSelectionButtonContainer}>
           <Pressable
             onPress={() => setCurrentList(index)}
             style={({ pressed }) => [
@@ -88,24 +91,24 @@ function LearnListScreen({ route }) {
                 marginTop: pressed ? 5 : 0,
                 marginBottom: pressed ? 45 : 50
               },
-              styles.listButton
+              styles.listSelectionButton
               ]}>
-              <Text style={styles.listButtonIcon}>
+              <Text style={styles.listSelectionButtonIcon}>
                 <MaterialCommunityIcons name={icon} size={50} color='#202020'/>
               </Text>
           </Pressable>
         </View>
   
         <View>
-            <Text style={styles.text}>
-              {title}
-            </Text>
-          </View>
+          <Text style={styles.text}>
+            {title}
+          </Text>
+        </View>
       </View>
     );
   }
 
-//======================================================================
+  // ================================ Retorno da função principal
   return(
     <View style={styles.listContainer}>
       <FlatList
@@ -118,9 +121,10 @@ function LearnListScreen({ route }) {
               </Text>
             </View>
 
+            {/* View onde será mostrado as listas para serem selecionadas */}
             <ScrollView horizontal={true} style={styles.listSelection}>
               {listsIndex.map(item =>
-                  <ListButton  key={item} title={lists[id][item]} icon={icons[id][item]} index={item}/>
+                  <ListSelectionButton  key={item} title={lists[id][item]} icon={icons[id][item]} index={item}/>
               )}
             </ScrollView>
           </View>
@@ -133,7 +137,7 @@ function LearnListScreen({ route }) {
         data={data[id][currentList]}
         renderItem={renderItem}
         keyExtractor={item => item.id}
-        />
+      />
     </View>
   );
 };

@@ -6,13 +6,13 @@ import styles from '../styles/practiceListStyles';
 function PracticeListScreen( {route, navigation} ) {
 
   const { id, theme, nLists } = route.params;
-
   var listsIndex = [];
 
   for (var i=0; i<nLists; i++){
     listsIndex[i] = i;
   }
 
+  // Nomes das listas de cartões
   var lists = [
     ['casa', 'cozinha', 'sala de estar', 'quarto', 'banheiro'],
     ['frutas', 'legumes', 'bebidas', 'padaria', 'sobremesas'],
@@ -26,6 +26,7 @@ function PracticeListScreen( {route, navigation} ) {
     ['cores', 'animais', 'números']
   ];
 
+  // Icones das listas de cartões
   var icons = [
     ['home', 'fridge', 'television-classic', 'bed', 'shower'],
     ['food-apple', 'carrot', 'beer', 'baguette', 'cake'],
@@ -39,7 +40,7 @@ function PracticeListScreen( {route, navigation} ) {
     ['palette', 'dog-side', 'numeric']
   ];
 
-  // número de palavras em cada lista de palavras
+  // Número de palavras em cada lista de palavras
   var nWords = [
     [10, 13, 10, 10, 11],
     [12, 10, 9, 6, 8],
@@ -53,8 +54,9 @@ function PracticeListScreen( {route, navigation} ) {
     [0, 0, 0]
   ];
 
+  // ================================ Constante para configurar o botão que levará para a tela "Cards" (cards.js)
   const CardsButton = ( {title, icon, nWords} ) => (
-    <View style={styles.listContainer}>
+    <View style={styles.buttonContainer}>
       <Pressable
         onPress={() => navigation.navigate('Cards', {list: title, nWords: nWords })}
         style={({ pressed }) => [
@@ -62,7 +64,7 @@ function PracticeListScreen( {route, navigation} ) {
             marginTop: pressed ? 5 : 0,
             marginBottom: pressed ? 45 : 50
           },
-          styles.list
+          styles.button
           ]}>
           <Text style={styles.icon}>
             <MaterialCommunityIcons name={icon} size={50} color='#202020'/>
@@ -74,19 +76,26 @@ function PracticeListScreen( {route, navigation} ) {
     </View>
   );
 
+  // ================================ Retorno da função principal
   return(
     <View>
-      <ScrollView style={styles.listSelection}>
-        <View style={styles.listMenu}>
+      <View style={styles.mainContainer}>
+        
+        <View style={styles.themeTitleContainer}>
+          <Text style={styles.themeTitle}>
+            {theme}
+          </Text>
+        </View>
 
-          <ScrollView>
+        <View style={styles.listSelectionContainer}>
+          <ScrollView style={styles.listSelection}>
             {listsIndex.map(item =>
                 <CardsButton  key={item} title={lists[id][item]} icon={icons[id][item]} nWords={nWords[id][item]}/>
             )}
           </ScrollView>
-
         </View>
-      </ScrollView>
+
+      </View>
     </View>
   );
 };

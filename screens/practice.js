@@ -17,6 +17,7 @@ const THEMES = [["casa", 5, require("../assets/background/casa.jpg")],
 
 function PracticeScreen({navigation}) {
 
+  // ================================ Constante para configurar o botão que levará para a tela "CardList" (practiceList.js)
   const ThemeButton = ( {id} ) => {
     let image = THEMES[id][2];
     return(
@@ -32,6 +33,7 @@ function PracticeScreen({navigation}) {
     )
   }
 
+  // ================================ Retorno da função principal
   return(
     <View>
       <ScrollView style={{backgroundColor: '#905ca0'}}>
