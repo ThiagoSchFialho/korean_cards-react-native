@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: 15,
         borderRadius: 50,
-        backgroundColor: 'black'
+        backgroundColor: '#b3e6ff'
     },
     infoCardContainer: {
         flex: 1,
@@ -31,9 +31,10 @@ const styles = StyleSheet.create({
     infoCard: {
         width: '80%',
         padding: 25,
-        borderRadius: 20,
+        borderRadius: 10,
         backgroundColor: '#ffffcc',
-        alignItems: 'center'
+        alignItems: 'center',
+        elevation: 20
     },
     infoCardText: {
         fontFamily: 'Poppins_400Regular',
@@ -128,9 +129,10 @@ const styles = StyleSheet.create({
     stayOrLeaveCard: {
         width: '80%',
         padding: 25,
-        borderRadius: 20,
+        borderRadius: 10,
         backgroundColor: '#3399ff',
-        alignItems: 'center'
+        alignItems: 'center',
+        elevation: 20
     },
     stayOrLeaveCardText: {
         fontFamily: 'Poppins_400Regular',

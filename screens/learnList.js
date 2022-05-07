@@ -2,17 +2,7 @@ import React, { useState } from 'react';
 import { ScrollView, Text, View, Pressable, FlatList } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from '../styles/learnListStyles';
-
-import { CASA, COZINHA, SALADEESTAR, QUARTO, BANHEIRO } from '../data/casaListData';
-import { FRUTAS, LEGUMES, BEBIDAS, PADARIA, SOBREMESAS } from '../data/comidaListData';
-import { ESCRITORIO, COMPUTADOR, PROFISSOES } from '../data/trabalhoListData';
-import { SUPERMERCADO, FARMACIA, SHOPPINGCENTER } from '../data/comprasListData';
-import { ESCOLA, MATEMATICA, GEOGRAFIA } from '../data/educacaoListData';
-import { BICICLETA, AVIAO, CAMINHAO, CARRO } from '../data/transportListData';
-import { FAMILIA, EMOCOES, CORPO, CORPO2 } from '../data/pessoasListData';
-import { ROUPASMASCULINAS, ROUPASFEMININAS, CALCADOS, MATERIAL, JOIAS, ACESSORIOS } from '../data/aparenciaListData';
-import { PRAIA, ACAMPAMENTO, TEATRO, JOGOS } from '../data/lazerListData';
-import { CORES, ANIMAIS, NUMEROS } from '../data/basicoListData';
+import { listNames, listIcons, ListData } from '../data/listsData';
 
 // ================================ Constante para configurar como será renderizado cada item na FlatList
 const Item = ({ word, translation }) => (
@@ -24,55 +14,13 @@ const Item = ({ word, translation }) => (
 
 function LearnListScreen({ route }) {
 
-  const { id, theme, nLists } = route.params;
+  const { id, theme } = route.params; // parametros vindos do arquivo 'learn.js'
   const [currentList, setCurrentList] = useState(0);
-  let listsIndex = [];
-  
-  for (let i=0; i<nLists; i++){
+  var listsIndex = [];
+
+  for (let i=0; i<listNames[id].length; i++){
     listsIndex[i] = i;
   }
-
-  // Nomes das listas de cartões
-  let lists = [
-    ['casa', 'cozinha', 'sala de estar', 'quarto', 'banheiro'],
-    ['frutas', 'legumes', 'bebidas', 'padaria', 'sobremesas'],
-    ['escritório', 'computador', 'profissões'],
-    ['supermercado', 'farmácia', 'shopping center'],
-    ['escola', 'matemática', 'geografia'],
-    ['bicicleta', 'avião', 'caminhão', 'carro'],
-    ['família', 'emoções', 'corpo', 'corpo 2'],
-    ['roupas masculinas', 'roupas femininas', 'calçados', 'material', 'joias', 'acessórios'],
-    ['praia', 'acampamento', 'teatro', 'jogos'],
-    ['cores', 'animais', 'números']
-  ];
-
-  // Icones das listas de cartões
-  let icons = [
-    ['home', 'fridge', 'television-classic', 'bed', 'shower'],
-    ['food-apple', 'carrot', 'beer', 'baguette', 'cake'],
-    ['city-variant', 'desktop-tower-monitor', 'briefcase'],
-    ['cart', 'gamepad-round', 'escalator-up'],
-    ['book-open-page-variant', 'calculator-variant', 'earth'],
-    ['bicycle', 'airplane', 'truck', 'car'],
-    ['human-female-boy', 'emoticon-happy', 'human-handsdown', 'human-handsdown'],
-    ['human-male', 'human-female', 'shoe-formal', 'texture-box', 'diamond-stone', 'sunglasses'],
-    ['beach', 'campfire', 'drama-masks', 'google-controller'],
-    ['palette', 'dog-side', 'numeric']
-  ];
-
-  // Constantes que guardam as palavras das listas
-  let data = [
-    [CASA, COZINHA, SALADEESTAR, QUARTO, BANHEIRO],
-    [FRUTAS, LEGUMES, BEBIDAS, PADARIA, SOBREMESAS],
-    [ESCRITORIO, COMPUTADOR, PROFISSOES],
-    [SUPERMERCADO, FARMACIA, SHOPPINGCENTER],
-    [ESCOLA, MATEMATICA, GEOGRAFIA],
-    [BICICLETA, AVIAO, CAMINHAO, CARRO],
-    [FAMILIA, EMOCOES, CORPO, CORPO2],
-    [ROUPASMASCULINAS, ROUPASFEMININAS, CALCADOS, MATERIAL, JOIAS, ACESSORIOS],
-    [PRAIA, ACAMPAMENTO, TEATRO, JOGOS],
-    [CORES, ANIMAIS, NUMEROS]
-  ];
 
   // ================================ Constante para configurar como será renderizado os itens na FlatList
   const renderItem = ({ item }) => (
@@ -122,19 +70,19 @@ function LearnListScreen({ route }) {
             </View>
 
             {/* View onde será mostrado as listas para serem selecionadas */}
-            <ScrollView horizontal={true} style={styles.listSelection}>
+            <ScrollView style={styles.listSelection} horizontal={true} showsHorizontalScrollIndicator={false}>
               {listsIndex.map(item =>
-                  <ListSelectionButton  key={item} title={lists[id][item]} icon={icons[id][item]} index={item}/>
+                  <ListSelectionButton  key={item} title={listNames[id][item]} icon={listIcons[id][item]} index={item}/>
               )}
             </ScrollView>
           </View>
 
           <Text style={styles.listTitle}>
-            {lists[id][currentList]}
+            {listNames[id][currentList]}
           </Text>
 
         </>}
-        data={data[id][currentList]}
+        data={ListData[id][currentList]}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />

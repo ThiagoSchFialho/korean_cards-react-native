@@ -1,5 +1,6 @@
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -10,22 +11,6 @@ import PracticeListScreen from './screens/practiceList';
 import CardsScreen from './screens/cards';
 
 const Stack = createNativeStackNavigator();
-function PracticeScreens() {
-  return(
-    <Stack.Navigator
-      screenOptions={(route) => ({
-        title: '',
-        headerTransparent: true,
-        statusBarStyle: 'dark',
-      })}
-    >
-      <Stack.Screen name="Practice" component={PracticeScreen}/>
-      <Stack.Screen name="CardList" component={PracticeListScreen}/>
-      <Stack.Screen name="Cards" component={CardsScreen} options={{statusBarHidden: true}}/>
-    </Stack.Navigator>
-  );
-}
-
 function LearnScreens() {
   return(
     <Stack.Navigator
@@ -42,6 +27,22 @@ function LearnScreens() {
   );
 }
 
+function PracticeScreens() {
+  return(
+    <Stack.Navigator
+      screenOptions={(route) => ({
+        title: '',
+        headerTransparent: true,
+        statusBarStyle: 'dark',
+      })}
+    >
+      <Stack.Screen name="Practice" component={PracticeScreen}/>
+      <Stack.Screen name="CardList" component={PracticeListScreen}/>
+      <Stack.Screen name="Cards" component={CardsScreen} options={{statusBarHidden: true}}/>
+    </Stack.Navigator>
+  );
+}
+
 const Tab = createBottomTabNavigator();
 export default function MyTabs() {
   return (
@@ -53,30 +54,37 @@ export default function MyTabs() {
 
       tabBarStyle: {
         height: 60,
+        borderTopWidth: 2,
+        borderTopColor: '#898989',
       },
 
       tabBarLabelStyle: {
-        marginTop: -10,
+        marginTop: -3,
         fontFamily: 'Poppins_700Bold'
       },
 
-      tabBarIcon: ({ size, color }) => {
-        let iconName;
-        
+      tabBarIcon: ({ size, color }) => {        
         if (route.name == 'Aprender') {
-          iconName = 'book';
+          return(
+            <Ionicons name={'book'} size={size+8} color={color}/>
+          )
+          
+        } else if (route.name == 'Hangul') {
+          return (
+            <MaterialCommunityIcons name={'syllabary-hangul'} size={size+14} color={color}/>
+          )
 
         } else if (route.name == 'Praticar') {
-          iconName = 'copy';
-        }
-        return (
-          <Ionicons name={iconName} size={size+9} color={color}/>
-        )
-      }
+          return(
+            <Ionicons name={'copy'} size={size+8} color={color}/>
+          )
 
+        }
+      }
     })}
   >
     <Tab.Screen name='Aprender' component={LearnScreens}/>
+    {/* <Tab.Screen name='Hangul' component={HangulScreen}/> */}
     <Tab.Screen name='Praticar' component={PracticeScreens}/>
   </Tab.Navigator>
   );

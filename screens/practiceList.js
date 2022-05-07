@@ -1,58 +1,17 @@
 import React from 'react';
 import { ScrollView, Text, View, Pressable } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../styles/practiceListStyles';
+import { listNames, listIcons, nWords } from '../data/listsData';
 
 function PracticeListScreen( {route, navigation} ) {
 
-  const { id, theme, nLists } = route.params;
-  let listsIndex = [];
-  
-  for (let i=0; i<nLists; i++){
+  const { id, theme } = route.params; // parametros vindos do arquivo 'practice.js'
+  var listsIndex = [];
+
+  for (let i=0; i<listNames[id].length; i++){
     listsIndex[i] = i;
   }
-
-  // Nomes das listas de cartões
-  let lists = [
-    ['casa', 'cozinha', 'sala de estar', 'quarto', 'banheiro'],
-    ['frutas', 'legumes', 'bebidas', 'padaria', 'sobremesas'],
-    ['escritório', 'computador', 'profissões'],
-    ['supermercado', 'farmácia', 'shopping center'],
-    ['escola', 'matemática', 'geografia'],
-    ['bicicleta', 'avião', 'caminhão', 'carro'],
-    ['família', 'emoções', 'corpo', 'corpo 2'],
-    ['roupas masculinas', 'roupas femininas', 'calçados', 'material', 'joias', 'acessórios'],
-    ['praia', 'acampamento', 'teatro', 'jogos'],
-    ['cores', 'animais', 'números']
-  ];
-
-  // Icones das listas de cartões
-  let icons = [
-    ['home', 'fridge', 'television-classic', 'bed', 'shower'],
-    ['food-apple', 'carrot', 'beer', 'baguette', 'cake'],
-    ['city-variant', 'desktop-tower-monitor', 'briefcase'],
-    ['cart', 'gamepad-round', 'escalator-up'],
-    ['book-open-page-variant', 'calculator-variant', 'earth'],
-    ['bicycle', 'airplane', 'truck', 'car'],
-    ['human-female-boy', 'emoticon-happy', 'human-handsdown', 'human-handsdown'],
-    ['human-male', 'human-female', 'shoe-formal', 'texture-box', 'diamond-stone', 'sunglasses'],
-    ['beach', 'campfire', 'drama-masks', 'google-controller'],
-    ['palette', 'dog-side', 'numeric']
-  ];
-
-  // Número de palavras em cada lista de palavras
-  let nWords = [
-    [10, 13, 10, 10, 11],
-    [12, 10, 9, 6, 8],
-    [14, 9, 11],
-    [10, 10, 14],
-    [15, 16, 12],
-    [14, 16, 10, 13],
-    [14, 11, 17, 18],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0]
-  ];
 
   // ================================ Constante para configurar o botão que levará para a tela "Cards" (cards.js)
   const CardsButton = ( {title, icon, nWords} ) => (
@@ -88,9 +47,9 @@ function PracticeListScreen( {route, navigation} ) {
         </View>
 
         <View style={styles.listSelectionContainer}>
-          <ScrollView style={styles.listSelection}>
+          <ScrollView style={styles.listSelection} showsVerticalScrollIndicator={false}>
             {listsIndex.map(item =>
-                <CardsButton  key={item} title={lists[id][item]} icon={icons[id][item]} nWords={nWords[id][item]}/>
+                <CardsButton  key={item} title={listNames[id][item]} icon={listIcons[id][item]} nWords={nWords[id][item]}/>
             )}
           </ScrollView>
         </View>

@@ -1,67 +1,13 @@
 import React, { useState } from 'react';
 import { Animated, View, Text, Pressable, Modal, TouchableWithoutFeedback } from 'react-native';
-
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../styles/cardsStyles';
-
-import { CASA, COZINHA, SALADEESTAR, QUARTO, BANHEIRO } from '../data/casaListData';
-import { FRUTAS, LEGUMES, BEBIDAS, PADARIA, SOBREMESAS } from '../data/comidaListData';
-import { ESCRITORIO, COMPUTADOR, PROFISSOES } from '../data/trabalhoListData';
-import { SUPERMERCADO, FARMACIA, SHOPPINGCENTER } from '../data/comprasListData';
-import { ESCOLA, MATEMATICA, GEOGRAFIA } from '../data/educacaoListData';
-import { BICICLETA, AVIAO, CAMINHAO, CARRO } from '../data/transportListData';
-import { FAMILIA, EMOCOES, CORPO, CORPO2 } from '../data/pessoasListData';
-import { ROUPASMASCULINAS, ROUPASFEMININAS, CALCADOS, MATERIAL, JOIAS, ACESSORIOS } from '../data/aparenciaListData';
-import { PRAIA, ACAMPAMENTO, TEATRO, JOGOS } from '../data/lazerListData';
-import { CORES, ANIMAIS, NUMEROS } from '../data/basicoListData';
-import { registerAsset } from 'react-native-web/dist/cjs/modules/AssetRegistry';
-
-lists = {"casa" : CASA,
-        "cozinha" : COZINHA,
-        "sala de estar" : SALADEESTAR,
-        "quarto" : QUARTO,
-        "banheiro" : BANHEIRO,
-        "frutas" : FRUTAS,
-        "legumes" : LEGUMES,
-        "bebidas" : BEBIDAS,
-        "padaria" : PADARIA,
-        "sobremesas" : SOBREMESAS,
-        "escritório" : ESCRITORIO,
-        "computador" : COMPUTADOR,
-        "profissões" : PROFISSOES,
-        "supermercado" : SUPERMERCADO,
-        "farmácia" : FARMACIA,
-        "shopping center" : SHOPPINGCENTER,
-        "escola" : ESCOLA,
-        "matemática" : MATEMATICA,
-        "geografia" : GEOGRAFIA,
-        "bicicleta" : BICICLETA,
-        "avião" : AVIAO,
-        "caminhão" : CAMINHAO,
-        "carro" : CARRO,
-        "família" : FAMILIA,
-        "emoções" : EMOCOES,
-        "corpo" : CORPO,
-        "corpo 2" : CORPO2,
-        "roupas masculinas" : ROUPASMASCULINAS,
-        "roupas femininas" : ROUPASFEMININAS,
-        "calçados" : CALCADOS,
-        "material" : MATERIAL,
-        "joias" : JOIAS,
-        "acessórios" : ACESSORIOS,
-        "praia" : PRAIA,
-        "acampamento" : ACAMPAMENTO,
-        "teatro" : TEATRO,
-        "jogos" : JOGOS,
-        "cores" : CORES,
-        "animais" : ANIMAIS,
-        "números" : NUMEROS
-    }
+import { lists } from '../data/listsData';
 
 function CardsScreen( {route, navigation} ) {
 
     // Declarações de variaveis e constantes
-    const { list, nWords } = route.params;
+    const { list, nWords } = route.params; // parametros vindos do arquivo 'practiceList.js'
     let word = '';
     let translation = '';
 
@@ -98,12 +44,12 @@ function CardsScreen( {route, navigation} ) {
     // ================================ Constante para configurar o modal que mostra informações sobre a tela
     const InfoCard = () => (
         <Modal
-            animationType="slide"
+            animationType='slide'
             transparent={true}
             visible={infoCardVisible}
             onRequestClose={() => { setInfoCardVisible(!infoCardVisible) }}
         >
-            <View style={styles.infoCardContainer}>
+            <View style={[styles.infoCardContainer, {}]}>
                 <View style={styles.infoCard}>
                     <Text style={styles.infoCardText}>
                         Quando lembrar a tradução da palavra ou desistir, toque no cartão para gira-lo, ver a resposta e ver se você acertou ou não.
@@ -142,7 +88,7 @@ function CardsScreen( {route, navigation} ) {
                     style={styles.infoButton}
                     onPress={() => setInfoCardVisible(true)}
                 >
-                    <MaterialCommunityIcons name={'information'} size={35} color='#00a2e8'/>
+                    <MaterialCommunityIcons name={'information'} size={35} color='#3399ff'/>
                 </Pressable>
             
                 <InfoCard/>
@@ -238,7 +184,7 @@ function CardsScreen( {route, navigation} ) {
         </TouchableWithoutFeedback>
     );
 
-    // ================================
+    // ================================ Constante para configurar o modal que pergunta ao usuario se deseja recomeçar a sequencia de cartões ou se deseja valtar a tela anterior
     const StayOrLeaveCard = () => (
         <Modal
             animationType="slide"

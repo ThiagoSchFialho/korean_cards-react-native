@@ -16,6 +16,7 @@ const App = () => {
     return <AppLoading/>;
   }
 
+
   return (
     <NavigationContainer>
       <MyTabs/>

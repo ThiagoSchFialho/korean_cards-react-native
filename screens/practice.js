@@ -2,27 +2,27 @@ import React from 'react';
 import { ImageBackground, ScrollView, Text, View, TouchableOpacity } from 'react-native';
 import styles from '../styles/themeSelectionStyles'
 
-// theme, nLists, image source
-const THEMES = [["casa", 5, require("../assets/background/casa.jpg")],
-                ["comida", 5, require("../assets/background/comida.jpg")],
-                ["trabalho", 3, require("../assets/background/trabalho.jpg")],
-                ["compras", 3, require("../assets/background/compras.jpg")],
-                ["educação", 3, require("../assets/background/educação.jpg")],
-                ["transporte", 4, require("../assets/background/transporte.jpg")],
-                ["pessoas", 4, require("../assets/background/pessoas.jpg")],
-                ["aparência", 6, require("../assets/background/aparência.jpg")],
-                ["lazer", 4, require("../assets/background/lazer.jpg")],
-                ["básico", 3, require("../assets/background/básico.jpg")],
+// theme, image source
+const THEMES = [["casa", require("../assets/background/casa.jpg")],
+                ["comida", require("../assets/background/comida.jpg")],
+                ["trabalho", require("../assets/background/trabalho.jpg")],
+                ["compras", require("../assets/background/compras.jpg")],
+                ["educação", require("../assets/background/educação.jpg")],
+                ["transporte", require("../assets/background/transporte.jpg")],
+                ["pessoas", require("../assets/background/pessoas.jpg")],
+                ["aparência", require("../assets/background/aparência.jpg")],
+                ["lazer", require("../assets/background/lazer.jpg")],
+                ["básico", require("../assets/background/básico.jpg")],
               ];
 
 function PracticeScreen({navigation}) {
 
   // ================================ Constante para configurar o botão que levará para a tela "CardList" (practiceList.js)
   const ThemeButton = ( {id} ) => {
-    let image = THEMES[id][2];
+    var image = THEMES[id][1];
     return(
       <View>
-        <TouchableOpacity onPress={() => navigation.navigate('CardList', { id: id, theme: THEMES[id][0], nLists: THEMES[id][1] })}>
+        <TouchableOpacity onPress={() => navigation.navigate('CardList', { id: id, theme: THEMES[id][0] })}>
           <View style={styles.theme}>
             <ImageBackground borderRadius={10} source={image} resizeMode="cover" style={styles.image}>
               <Text style={styles.text}>{THEMES[id][0]}</Text>
