@@ -1,6 +1,7 @@
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -9,6 +10,8 @@ import LearnListScreen from './screens/learnList';
 import PracticeScreen from './screens/practice';
 import PracticeListScreen from './screens/practiceList';
 import CardsScreen from './screens/cards';
+import QuizOptionsScreen from './screens/quizOptions';
+import QuizScreen from './screens/quiz';
 
 const Stack = createNativeStackNavigator();
 function LearnScreens() {
@@ -30,7 +33,7 @@ function LearnScreens() {
 function PracticeScreens() {
   return(
     <Stack.Navigator
-      screenOptions={(route) => ({
+      screenOptions={() => ({
         title: '',
         headerTransparent: true,
         statusBarStyle: 'dark',
@@ -42,6 +45,22 @@ function PracticeScreens() {
     </Stack.Navigator>
   );
 }
+
+function QuizScreens() {
+  return(
+    <Stack.Navigator
+      screenOptions={() => ({
+        title: '',
+        headerTransparent: true,
+        statusBarStyle: 'dark',
+      })}
+    >
+      <Stack.Screen name="QuizOptions" component={QuizOptionsScreen}/>
+      <Stack.Screen name="QuizGame" component={QuizScreen}/>
+    </Stack.Navigator>
+  );
+}
+
 
 const Tab = createBottomTabNavigator();
 export default function MyTabs() {
@@ -79,6 +98,10 @@ export default function MyTabs() {
             <Ionicons name={'copy'} size={size+8} color={color}/>
           )
 
+        } else if (route.name == 'Quiz') {
+          return(
+            <MaterialCommunityIcons name={'comment-question'} size={size+10} color={color}/>
+          )
         }
       }
     })}
@@ -86,6 +109,7 @@ export default function MyTabs() {
     <Tab.Screen name='Aprender' component={LearnScreens}/>
     {/* <Tab.Screen name='Hangul' component={HangulScreen}/> */}
     <Tab.Screen name='Praticar' component={PracticeScreens}/>
+    <Tab.Screen name='Quiz' component={QuizScreens}/>
   </Tab.Navigator>
   );
 }

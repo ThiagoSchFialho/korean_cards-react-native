@@ -125,11 +125,6 @@ function LearnScreen({ navigation }) {
         <View style={styles.themeMenu}>
 
         <WellcomeModal/>
-        {/* <TouchableOpacity onPress={() => RemoveData()}>
-          <View style={styles.wellcomeMessageButton}>
-            <Text style={styles.wellcomeMessageTextButton}>remove</Text>
-          </View>
-        </TouchableOpacity> */}
 
         <ThemeButton id={0}/>
         <ThemeButton id={1}/>

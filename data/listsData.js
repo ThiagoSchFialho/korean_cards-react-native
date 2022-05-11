@@ -40,7 +40,7 @@ export var listIcons = [
 ];
 
 // Usado em learnList.js
-// Constantes que guardam as palavras das listas
+// Constantes que guardam o conteúdo das listas
 export var ListData = [
     [CASA, COZINHA, SALADEESTAR, QUARTO, BANHEIRO],
     [FRUTAS, LEGUMES, BEBIDAS, PADARIA, SOBREMESAS],
