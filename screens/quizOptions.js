@@ -24,8 +24,8 @@ function QuizOptionsScreen( {navigation} ) {
                     onValueChange={(itemValue) => setSelectedLanguage(itemValue)}
                 >
                     <Picker.Item label="Selecionar idioma"/>
-                    <Picker.Item label="Português" value="pt"/>
-                    <Picker.Item label="Coreano" value="kr"/>
+                    <Picker.Item label="Português" value="Português"/>
+                    <Picker.Item label="Coreano" value="Coreano"/>
                 </Picker>
             </View>
         </View>
@@ -92,7 +92,7 @@ function QuizOptionsScreen( {navigation} ) {
         </View>
     );
 
-    // ================================ Constante para configurar o botão que leva até a tela de 'QuizGame' levando os parametros necessarios
+    // ================================ Constante para configurar o botão que leva até a tela de 'QuizGame' levando os parametros necessários
     const SubmitButton = () => (
         <View style={styles.submitButtonContainer}>
             <View style={styles.submitButtonShadow}>
