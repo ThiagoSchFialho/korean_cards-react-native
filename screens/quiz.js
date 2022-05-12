@@ -4,11 +4,14 @@ import styles from '../styles/quizStyles';
 
 function QuizScreen( {route} ) {
 
-    const { test } = route.params;
+    const { language, qntQuestions, theme } = route.params; // parametros vindos do arquivo 'quizOptions.js'
 
     return(
         <View>
-            <Text>quiz screen {test}</Text>
+            <Text>quiz screen</Text>
+            <Text>idioma: {language}</Text>
+            <Text>qnt de questões: {qntQuestions}</Text>
+            <Text>tema: {theme}</Text>
         </View>
     )
 }

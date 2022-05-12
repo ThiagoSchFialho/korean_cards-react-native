@@ -18,25 +18,48 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins_700Bold'
     },
 
-    selectInputContainer: {
-        paddingHorizontal: 20
-    },
-    selectInputLabel: {
+    inputLabel: {
         color: 'white',
         fontSize: 25,
-        fontFamily: 'Poppins_400Regular'
+        fontFamily: 'Poppins_400Regular',
+        textDecorationLine: 'underline',
+    },
+    selectInputContainer: {
+        paddingHorizontal: 30
     },
     selectInput: {
         backgroundColor: 'white',
         borderRadius: 10
     },
+
+
     selectQntQuestionsInputContainer: {
-        marginVertical: 100
+        marginVertical: 50,
+        paddingHorizontal: 30,
+    },
+    radioInputsContainer: {
+        flexDirection: 'row',
+        justifyContent: "space-between",
+    },
+    radioInput: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+    },
+    radioText: {
+        marginTop: 5,
+        color: 'white',
+        fontFamily: 'Poppins_500Medium',
+        fontSize: 20,
+        textAlign: 'center',
     },
 
 
     submitButtonContainer: {
-        marginTop: 130,
+        marginTop: 100,
         alignItems: 'center'
     },
     submitButtonShadow: {
@@ -57,7 +80,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     submitButtonText: {
-        color: 'black',
+        color: '#005500',
         fontSize: 25,
         textTransform: 'capitalize',
         fontFamily: 'Poppins_700Bold',
