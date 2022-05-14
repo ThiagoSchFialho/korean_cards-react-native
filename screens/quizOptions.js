@@ -41,7 +41,7 @@ function QuizOptionsScreen( {navigation} ) {
                 >
                     <FontAwesome name={'check'} size={40} color={selectedRadio == option ? '#72D656': 'white'}/>
                 </Pressable>
-                <Text style={styles.radioText}>{option == 999 ? 'ထ' : option}</Text>
+                <Text style={styles.radioText}>{option}</Text>
             </View>
         );
 
@@ -56,7 +56,7 @@ function QuizOptionsScreen( {navigation} ) {
                     <RadioInput option={10}/>
                     <RadioInput option={15}/>
                     <RadioInput option={20}/>
-                    <RadioInput option={999}/>
+                    <RadioInput option={25}/>
                 </View>
             </View>
         )

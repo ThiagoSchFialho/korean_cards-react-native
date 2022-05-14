@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable,TouchableWithoutFeedback } from 'react-native';
+import { View, Text, Pressable,TouchableWithoutFeedback, Modal } from 'react-native';
 import styles from '../styles/quizStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { ListData } from '../data/listsData';
@@ -11,12 +11,19 @@ function QuizScreen( {route, navigation} ) {
     const [isFirstQuestion, setIsFirstQuestion] = useState(true);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState();
+    const [userAnswer, setUserAnswer] = useState();
+    const [isUserAnswerCorrect, setIsUserAnswerCorrect] = useState(false);
+    const [userScore, setUserScore] = useState(0);
 
     const [questionWord, setQuestionWord] = useState();
+    const [correctAnswerPosition, setCorrectAnswerPosition] = useState();
     const [answer0, setAnswer0] = useState();
     const [answer1, setAnswer1] = useState();
     const [answer2, setAnswer2] = useState();
     const [answer3, setAnswer3] = useState();
+
+    const [userFeedBackVisible, setUserFeedBackVisible] = useState(false);
+    const [resultsVisible, setResultsVisible] = useState(false);
 
     var answer = [];
 
@@ -28,7 +35,22 @@ function QuizScreen( {route, navigation} ) {
         setIsFirstQuestion(false);
     }
 
+    function userAnswerVerification () {
+        if (!isFirstQuestion) {
+            if (userAnswer == correctAnswerPosition) {
+                setUserScore(userScore+1);
+                setIsUserAnswerCorrect(true);
+            } else {
+                setIsUserAnswerCorrect(false);
+            }
+        }
+
+        setUserFeedBackVisible(true);
+    }
+
     function nextQuestion () {
+        
+        setUserFeedBackVisible(false);
         if (currentQuestion < qntQuestions) {
             setCurrentQuestion(currentQuestion+1);
 
@@ -41,11 +63,15 @@ function QuizScreen( {route, navigation} ) {
             // Index aleatório dentro da lista
             var randomIndex = parseInt(Math.random() * nElements);
 
+            // Gerando a palavra a ser traduzida (palavra do enunciado da questão)
             setQuestionWord(ListData[themeId][randomList] [randomIndex][questionWordWord]);
 
+            // Gerando resposta certa
             var answerPosition = parseInt(Math.random() * 4);
+            setCorrectAnswerPosition(answerPosition);
             answer[answerPosition] = ListData[themeId][randomList] [randomIndex][answerWord];
 
+            // Gerando os distratores (respostas erradas)
             var randomAnswer = '';
             for (var i=0; i<4; i++) {
                 if (i != answerPosition) {
@@ -64,24 +90,95 @@ function QuizScreen( {route, navigation} ) {
             setAnswer2(answer[2]);
             setAnswer3(answer[3]);
 
-            setSelectedAnswer(0);
+            // resetando os estados que gravam qual respota foi marcada pelo usuário
+            setUserAnswer();
+            setSelectedAnswer();
 
         } else {
-            alert('acabou');
-            navigation.goBack();
+            setResultsVisible(true);
         }
     }
 
+    // ================================ Constante para configurar o modal que mostra para o usuário se ele acertou ou não a questão, além de apresentar um botão para avançar para a proxima questão
+    const UserFeedBack = () => {
+        var message = '';
+        if (isUserAnswerCorrect) {
+            message = 'Você acertou!!!';
+        } else {
+            message = 'Você errou';
+        }
+
+        return(
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={userFeedBackVisible}
+                onRequestClose={() => { setUserFeedBackVisible(!userFeedBackVisible) }}
+            >
+                <View style={[styles.userFeedBackContainer, isUserAnswerCorrect==true ? {backgroundColor: '#b2ecac'} : {backgroundColor: '#f2aaa6'}]}>
+                    <Text style={styles.userFeedBackText}>
+                        {message}
+                    </Text>
+
+                    <Pressable
+                    style={[styles.userFeedBackButton, isUserAnswerCorrect==true ? {backgroundColor: '#37bb2a'} : {backgroundColor: '#e23f36'}]}
+                    onPress={() => nextQuestion()}
+                    >
+                        <Text style={styles.userFeedBackButtonText}>
+                            Avançar
+                        </Text>
+                    </Pressable>
+                </View>
+            </Modal>
+        );
+    };
+
+    // ================================ Constante para configurar o modal que mostra os resultados (quantas questões o usuário acertou)
+    const Results = () => (
+        <Modal
+            animationType="fade"
+            transparent={true}
+            visible={resultsVisible}
+            onRequestClose={() => { setResultsVisible(!resultsVisible) }}
+        >
+            <View style={styles.resultsContainer}>
+                <Text style={styles.resultsTitle}>
+                    Pontos:
+                </Text>
+                <Text style={styles.resultsText}>
+                    {userScore} / {qntQuestions}
+                </Text>
+
+                <View style={styles.resultsButtonContainer}>
+                    <Pressable
+                    style={styles.resultsButton}
+                    onPress={() => navigation.goBack()}
+                    >
+                        <Text style={styles.resultsButtonText}>
+                            Sair
+                        </Text>
+                    </Pressable>
+                </View>
+            </View>
+        </Modal>
+    );
+
+    // ================================ Função para guardar qual resposta foi marcada pelo usuário
+    function saveSelectedAnswer ( id, option) {
+        setUserAnswer(id);
+        setSelectedAnswer(option);
+    }
+
     // ================================ Constante para configurar o input do tipo radio que quando selecionado representa uma resposta
-    const RadioInput = ( {option} ) => (
+    const RadioInput = ( {id, option} ) => (
         <View style={styles.radioInputContainer}>
             <Pressable
-                onPress={() => setSelectedAnswer(option)}
+                onPress={() => saveSelectedAnswer(id, option)}
                 style={styles.radioInput}
             >
                 <FontAwesome name={'check'} size={40} color={selectedAnswer == option ? '#72D656': 'white'}/>
             </Pressable>
-            <TouchableWithoutFeedback onPress={() => setSelectedAnswer(option)}>
+            <TouchableWithoutFeedback onPress={() => saveSelectedAnswer(id, option)}>
                 <Text style={styles.radioText}>
                     {option}
                 </Text>
@@ -93,7 +190,7 @@ function QuizScreen( {route, navigation} ) {
     return(
         <View style={styles.mainContainer}>
             <Text style={styles.counter}>
-                {currentQuestion} / {qntQuestions == 999 ? 'ထ' : qntQuestions}
+                {currentQuestion} / {qntQuestions}
             </Text>
 
             <Text style={styles.question}>
@@ -113,10 +210,13 @@ function QuizScreen( {route, navigation} ) {
                 <RadioInput id={3} option={answer3}/>
             </View>
 
+            <UserFeedBack/>
+            <Results/>
+
             <View style={styles.confirmButtonContainer}>
                 <View style={styles.confirmButtonShadow}>
                     <Pressable
-                        onPress={() => nextQuestion()}
+                        onPress={() => userAnswerVerification()}
                         style={({ pressed }) => [
                         {
                             marginTop: pressed ? 5 : 0,

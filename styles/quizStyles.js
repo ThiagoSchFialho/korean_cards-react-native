@@ -62,6 +62,72 @@ const styles = StyleSheet.create({
         lineHeight: 46,
     },
 
+    userFeedBackContainer: {
+        position: 'absolute',
+        width: '100%',
+        height: 160,
+        bottom: 0,
+        padding: 20,
+        alignItems: 'center'
+    },
+    userFeedBackText: {
+        marginBottom: 40,
+        fontFamily: 'Poppins_400Regular',
+        fontSize: 20,
+        color: '#242424',
+    },
+    userFeedBackButton: {
+        width: '50%',
+        borderRadius: 100,
+    },
+    userFeedBackButtonText: {
+        textTransform: 'capitalize',
+        textAlign: 'center',
+        color: '#242424',
+        lineHeight: 50,
+        fontFamily: 'Poppins_700Bold',
+        fontSize: 25,
+    },
+
+    resultsContainer: {
+        backgroundColor: '#3166B0',
+        height: '100%',
+        padding: 0,
+        justifyContent: 'center'
+    },
+    resultsTitle: {
+        color: 'white',
+        fontSize: 30,
+        textAlign: 'center',
+        textTransform: 'capitalize',
+        textDecorationLine: "underline",
+        fontFamily: 'Poppins_700Bold'
+    },
+    resultsText: {
+        marginVertical: 60,
+        color: 'white',
+        fontSize: 50,
+        textAlign: 'center',
+        textTransform: 'capitalize',
+        fontFamily: 'Poppins_700Bold'
+    },
+    resultsButtonContainer: {
+        alignItems: 'center'
+    },
+    resultsButton: {
+        width: '50%',
+        borderRadius: 100,
+        backgroundColor: 'orange'
+    },
+    resultsButtonText: {
+        textTransform: 'capitalize',
+        textAlign: 'center',
+        color: '#242424',
+        lineHeight: 50,
+        fontFamily: 'Poppins_700Bold',
+        fontSize: 25,
+    },
+
     confirmButtonContainer: {
         position: 'absolute',
         bottom: 5,
