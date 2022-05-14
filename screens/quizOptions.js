@@ -6,9 +6,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 function QuizOptionsScreen( {navigation} ) {
 
-    const [selectedLanguage, setSelectedLanguage] = useState();
-    const [selectedRadio, setSelectedRadio] = useState(5);
-    const [selectedTheme, setSelectedTheme] = useState();
+    const [selectedLanguage, setSelectedLanguage] = useState("Coreano");
+    const [selectedRadio, setSelectedRadio] = useState(10);
+    const [selectedTheme, setSelectedTheme] = useState(0);
 
     // ================================ Constante para configurar o input que captura a escolha do usuário referente ao idioma de resposta do quiz
     const SelectLanguageInput = () => (
@@ -23,9 +23,8 @@ function QuizOptionsScreen( {navigation} ) {
                     selectedValue={selectedLanguage}
                     onValueChange={(itemValue) => setSelectedLanguage(itemValue)}
                 >
-                    <Picker.Item label="Selecionar idioma"/>
-                    <Picker.Item label="Português" value="Português"/>
                     <Picker.Item label="Coreano" value="Coreano"/>
+                    <Picker.Item label="Português" value="Português"/>
                 </Picker>
             </View>
         </View>
@@ -54,9 +53,9 @@ function QuizOptionsScreen( {navigation} ) {
                 </Text>
 
                 <View style={styles.radioInputsContainer}>
-                    <RadioInput option={5}/>
                     <RadioInput option={10}/>
                     <RadioInput option={15}/>
+                    <RadioInput option={20}/>
                     <RadioInput option={999}/>
                 </View>
             </View>
@@ -76,17 +75,17 @@ function QuizOptionsScreen( {navigation} ) {
                     selectedValue={selectedTheme}
                     onValueChange={(itemValue) => setSelectedTheme(itemValue)}
                 >
-                    <Picker.Item label="Selecionar tema"/>
-                    <Picker.Item label="Casa" value="casa"/>
-                    <Picker.Item label="Comida" value="comida"/>
-                    <Picker.Item label="Trabalho" value="trabalho"/>
-                    <Picker.Item label="Compras" value="compras"/>
-                    <Picker.Item label="Educação" value="educação"/>
-                    <Picker.Item label="Transporte" value="transporte"/>
-                    <Picker.Item label="Pessoas" value="pessoas"/>
-                    <Picker.Item label="Aparência" value="aparencia"/>
-                    <Picker.Item label="Lazer" value="lazer"/>
-                    <Picker.Item label="Básico" value="basico"/>
+
+                    <Picker.Item label="Casa" value={0}/>
+                    <Picker.Item label="Comida" value={1}/>
+                    <Picker.Item label="Trabalho" value={2}/>
+                    <Picker.Item label="Compras" value={3}/>
+                    <Picker.Item label="Educação" value={4}/>
+                    <Picker.Item label="Transporte" value={5}/>
+                    <Picker.Item label="Pessoas" value={6}/>
+                    <Picker.Item label="Aparência" value={7}/>
+                    <Picker.Item label="Lazer" value={8}/>
+                    <Picker.Item label="Básico" value={9}/>
                 </Picker>
             </View>
         </View>
@@ -97,7 +96,7 @@ function QuizOptionsScreen( {navigation} ) {
         <View style={styles.submitButtonContainer}>
             <View style={styles.submitButtonShadow}>
                 <Pressable
-                    onPress={() => navigation.navigate('QuizGame', { language: selectedLanguage, qntQuestions: selectedRadio, theme: selectedTheme})}
+                    onPress={() => navigation.navigate('QuizGame', { language: selectedLanguage, qntQuestions: selectedRadio, themeId: selectedTheme})}
                     style={({ pressed }) => [
                     {
                         marginTop: pressed ? 5 : 0,
@@ -120,10 +119,13 @@ function QuizOptionsScreen( {navigation} ) {
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>opções do quiz</Text>
             </View>
-        
-            <SelectLanguageInput/>
-            <SelectQntQuestionsInput/>
-            <SelectThemeInput/>
+
+            <View style={styles.form}>
+                <SelectLanguageInput/>
+                <SelectQntQuestionsInput/>
+                <SelectThemeInput/>
+            </View>
+
             <SubmitButton/>
 
         </View>

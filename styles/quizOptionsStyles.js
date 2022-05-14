@@ -18,6 +18,11 @@ const styles = StyleSheet.create({
         fontFamily: 'Poppins_700Bold'
     },
 
+    form: {
+        flexDirection: 'column',
+        paddingHorizontal: 30,
+        height: '65%',
+    },
     inputLabel: {
         color: 'white',
         fontSize: 25,
@@ -25,7 +30,7 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
     },
     selectInputContainer: {
-        paddingHorizontal: 30
+        flex: 1,
     },
     selectInput: {
         backgroundColor: 'white',
@@ -34,8 +39,7 @@ const styles = StyleSheet.create({
 
 
     selectQntQuestionsInputContainer: {
-        marginVertical: 50,
-        paddingHorizontal: 30,
+        flex: 1,
     },
     radioInputsContainer: {
         flexDirection: 'row',
@@ -59,8 +63,8 @@ const styles = StyleSheet.create({
 
 
     submitButtonContainer: {
-        marginTop: 100,
-        alignItems: 'center'
+        marginTop: 60,
+        alignItems: 'center',
     },
     submitButtonShadow: {
         borderBottomColor: '#529C3E',

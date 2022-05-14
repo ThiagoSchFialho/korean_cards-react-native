@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         paddingVertical: 10,
         color: 'black',
+        textAlign: 'center',
         fontSize: 35,
         fontFamily: 'Poppins_700Bold',
         backgroundColor: 'white',
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
 
     radioInputContainer: {
         flexDirection: 'row',
-        marginBottom: 30,
+        marginBottom: 20,
     },
     radioInput: {
         width: 40,
@@ -53,7 +54,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     radioText: {
-        marginLeft: 10,
+        width: '100%',
+        paddingLeft: 10,
         color: 'white',
         fontFamily: 'Poppins_500Medium',
         fontSize: 20,
@@ -61,7 +63,9 @@ const styles = StyleSheet.create({
     },
 
     confirmButtonContainer: {
-        marginTop: 0,
+        position: 'absolute',
+        bottom: 5,
+        width: 411,
         alignItems: 'center'
     },
     confirmButtonShadow: {
