@@ -52,7 +52,28 @@ const styles = StyleSheet.create({
         color: 'black'
     },
 
-
+    explanationContainer: {
+        marginHorizontal: 20,
+        borderRadius: 5,
+        backgroundColor: '#80bfff',
+    },
+    explanationTitle: {
+        padding: 10,
+        textTransform: "capitalize",
+        fontSize: 20,
+        fontFamily: 'Poppins_700Bold',
+        borderBottomColor: 'black',
+        borderBottomWidth: 1,
+        borderTopLeftRadius: 5,
+        borderTopRightRadius: 5,
+        backgroundColor: '#1a8cff'
+    },
+    explanation: {
+        padding: 10,
+        textAlign: "justify",
+        fontSize: 15,
+        fontFamily: 'Poppins_400Regular',
+    },
 
     listTitle: {
         textTransform: 'capitalize',

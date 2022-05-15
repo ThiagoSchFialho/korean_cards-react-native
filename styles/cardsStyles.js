@@ -86,14 +86,12 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     cardTextWord: {
-        width: 300,
         color: '#202020',
         fontSize: 35,
         fontFamily:  'Poppins_400Regular',
-        textAlign: 'center'
+        textAlign: 'center',
     },
     cardTextTranslation: {
-        width: 300,
         color: '#202020',
         fontSize: 35,
         fontFamily:  'Poppins_400Regular',

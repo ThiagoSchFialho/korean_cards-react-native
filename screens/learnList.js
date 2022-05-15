@@ -56,6 +56,43 @@ function LearnListScreen({ route }) {
     );
   }
 
+  const Explanation = () => {
+    if (listNames[id][currentList] == 'números') {
+      return(
+        <View style={styles.explanationContainer}>
+          <Text style={styles.explanationTitle}>
+            explicação
+          </Text>
+          <Text style={styles.explanation}>
+            Existem apenas números coreanos de 1 a 99. A partir de 100 são utilizados os números sino-coreanos.
+          </Text>
+          <Text style={styles.explanation}>
+            O sistema nativo coreano é usado para contagem de objetos (quantidades), pessoas, vezes, idade também, horas etc.
+          </Text>
+        </View>
+      );
+    }
+
+    if (listNames[id][currentList] == 'sino-coreanos') {
+      return(
+        <View style={styles.explanationContainer}>
+          <Text style={styles.explanationTitle}>
+            explicação
+          </Text>
+          <Text style={styles.explanation}>
+            Existem apenas números coreanos de 1 a 99. A partir de 100 são utilizados os números sino-coreanos.
+          </Text>
+          <Text style={styles.explanation}>
+            O sistema sino-coreano é usado para contagem de minutos, preços, idade, meses, dias, anos, números ordinais, número de telefone etc.
+          </Text>
+        </View>
+      );
+    } else {
+      return(null);
+    }
+  }
+  
+
   // ================================ Retorno da função principal
   return(
     <View style={styles.listContainer}>
@@ -80,6 +117,8 @@ function LearnListScreen({ route }) {
           <Text style={styles.listTitle}>
             {listNames[id][currentList]}
           </Text>
+
+          <Explanation/>
 
         </>}
         data={ListData[id][currentList]}

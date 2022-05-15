@@ -17,6 +17,7 @@ function QuizScreen( {route, navigation} ) {
 
     const [questionWord, setQuestionWord] = useState();
     const [correctAnswerPosition, setCorrectAnswerPosition] = useState();
+    const [correctAnswer, setCorrectAnswer] = useState();
     const [answer0, setAnswer0] = useState();
     const [answer1, setAnswer1] = useState();
     const [answer2, setAnswer2] = useState();
@@ -70,6 +71,7 @@ function QuizScreen( {route, navigation} ) {
             var answerPosition = parseInt(Math.random() * 4);
             setCorrectAnswerPosition(answerPosition);
             answer[answerPosition] = ListData[themeId][randomList] [randomIndex][answerWord];
+            setCorrectAnswer(answer[answerPosition]);
 
             // Gerando os distratores (respostas erradas)
             var randomAnswer = '';
@@ -105,7 +107,7 @@ function QuizScreen( {route, navigation} ) {
         if (isUserAnswerCorrect) {
             message = 'Você acertou!!!';
         } else {
-            message = 'Você errou';
+            message = 'Você errou\n(Resposta: ' + correctAnswer + ')';
         }
 
         return(
@@ -117,7 +119,7 @@ function QuizScreen( {route, navigation} ) {
             >
                 <View style={[styles.userFeedBackContainer, isUserAnswerCorrect==true ? {backgroundColor: '#b2ecac'} : {backgroundColor: '#f2aaa6'}]}>
                     <Text style={styles.userFeedBackText}>
-                        {message}
+                       {message}
                     </Text>
 
                     <Pressable

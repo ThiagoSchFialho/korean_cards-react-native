@@ -239,8 +239,6 @@ function CardsScreen( {route, navigation} ) {
             
             <StayOrLeaveCard/>
         </View>
-
-        
     );
 
     // ================================ Retorno da função principal

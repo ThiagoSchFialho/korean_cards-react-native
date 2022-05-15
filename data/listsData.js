@@ -5,9 +5,9 @@ import { SUPERMERCADO, FARMACIA, SHOPPINGCENTER } from './comprasListData';
 import { ESCOLA, MATEMATICA, GEOGRAFIA } from './educacaoListData';
 import { BICICLETA, AVIAO, CAMINHAO, CARRO } from './transportListData';
 import { FAMILIA, EMOCOES, CORPO, CORPO2 } from './pessoasListData';
-import { ROUPASMASCULINAS, ROUPASFEMININAS, CALCADOS, MATERIAL, JOIAS, ACESSORIOS } from './aparenciaListData';
+import { ROUPAS, ROUPAS2, MATERIAL, JOIAS, ACESSORIOS } from './aparenciaListData';
 import { PRAIA, ACAMPAMENTO, TEATRO, JOGOS } from './lazerListData';
-import { CORES, ANIMAIS, NUMEROS } from './basicoListData';
+import { CORES, ANIMAIS, NUMEROS, SINOCOREANOS } from './basicoListData';
 
 // Usado em learnList.js e practiceList.js
 // Nomes das listas
@@ -19,9 +19,9 @@ export var listNames = [
     ['escola', 'matemática', 'geografia'],
     ['bicicleta', 'avião', 'caminhão', 'carro'],
     ['família', 'emoções', 'corpo', 'corpo 2'],
-    ['roupas masculinas', 'roupas femininas', 'calçados', 'material', 'joias', 'acessórios'],
+    ['roupas', 'roupas 2', 'material', 'joias', 'acessórios'],
     ['praia', 'acampamento', 'teatro', 'jogos'],
-    ['cores', 'animais', 'números']
+    ['cores', 'animais', 'números', 'sino-coreanos']
 ];
 
 // Usado em learnList.js e practiceList.js
@@ -34,9 +34,9 @@ export var listIcons = [
     ['book-open-page-variant', 'calculator-variant', 'earth'],
     ['bicycle', 'airplane', 'truck', 'car'],
     ['human-female-boy', 'emoticon-happy', 'human-handsdown', 'human-handsdown'],
-    ['human-male', 'human-female', 'shoe-formal', 'texture-box', 'diamond-stone', 'sunglasses'],
+    ['tshirt-crew', 'tshirt-crew', 'texture-box', 'diamond-stone', 'sunglasses'],
     ['beach', 'campfire', 'drama-masks', 'google-controller'],
-    ['palette', 'dog-side', 'numeric']
+    ['palette', 'dog-side', 'numeric', 'numeric']
 ];
 
 // Usado em learnList.js
@@ -49,9 +49,9 @@ export var ListData = [
     [ESCOLA, MATEMATICA, GEOGRAFIA],
     [BICICLETA, AVIAO, CAMINHAO, CARRO],
     [FAMILIA, EMOCOES, CORPO, CORPO2],
-    [ROUPASMASCULINAS, ROUPASFEMININAS, CALCADOS, MATERIAL, JOIAS, ACESSORIOS],
+    [ROUPAS, ROUPAS2, MATERIAL, JOIAS, ACESSORIOS],
     [PRAIA, ACAMPAMENTO, TEATRO, JOGOS],
-    [CORES, ANIMAIS, NUMEROS]
+    [CORES, ANIMAIS, NUMEROS, SINOCOREANOS]
 ];
 
 // Usado em practiceList.js
@@ -64,9 +64,9 @@ export var nWords = [
     [15, 16, 12],
     [14, 16, 10, 13],
     [14, 11, 17, 18],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0]
+    [13, 11, 20, 11, 12],
+    [13, 11, 11, 9],
+    [13, 16, 28, 33]
 ];
 
 // Usado em cards.js
@@ -98,9 +98,8 @@ export const lists = {
     "emoções" : EMOCOES,
     "corpo" : CORPO,
     "corpo 2" : CORPO2,
-    "roupas masculinas" : ROUPASMASCULINAS,
-    "roupas femininas" : ROUPASFEMININAS,
-    "calçados" : CALCADOS,
+    "roupas" : ROUPAS,
+    "roupas 2" : ROUPAS2,
     "material" : MATERIAL,
     "joias" : JOIAS,
     "acessórios" : ACESSORIOS,
@@ -110,5 +109,6 @@ export const lists = {
     "jogos" : JOGOS,
     "cores" : CORES,
     "animais" : ANIMAIS,
-    "números" : NUMEROS
+    "números" : NUMEROS,
+    "sino-coreanos" : SINOCOREANOS
 }

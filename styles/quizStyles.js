@@ -65,13 +65,14 @@ const styles = StyleSheet.create({
     userFeedBackContainer: {
         position: 'absolute',
         width: '100%',
-        height: 160,
+        height: 180,
         bottom: 0,
         padding: 20,
         alignItems: 'center'
     },
     userFeedBackText: {
         marginBottom: 40,
+        textAlign: 'center',
         fontFamily: 'Poppins_400Regular',
         fontSize: 20,
         color: '#242424',
