@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable,TouchableWithoutFeedback, Modal } from 'react-native';
+import { View, Text, Pressable,TouchableWithoutFeedback, Modal, StatusBar } from 'react-native';
 import styles from '../styles/quizStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { ListData } from '../data/listsData';
+
+
+var pastQuestionWords = [];
 
 function QuizScreen( {route, navigation} ) {
 
@@ -65,7 +68,15 @@ function QuizScreen( {route, navigation} ) {
             var randomIndex = parseInt(Math.random() * nElements);
 
             // Gerando a palavra a ser traduzida (palavra do enunciado da questão)
-            setQuestionWord(ListData[themeId][randomList] [randomIndex][questionWordWord]);
+            var word = '';
+            do {
+                randomList = parseInt(Math.random() * nLists);
+                nElements = ListData[themeId][randomList].length;
+                randomIndex = parseInt(Math.random() * nElements);
+                word = ListData[themeId][randomList] [randomIndex][questionWordWord];
+            } while ( pastQuestionWords.includes(word) );
+            pastQuestionWords.push(word);
+            setQuestionWord(word);
 
             // Gerando resposta certa
             var answerPosition = parseInt(Math.random() * 4);
@@ -104,10 +115,13 @@ function QuizScreen( {route, navigation} ) {
     // ================================ Constante para configurar o modal que mostra para o usuário se ele acertou ou não a questão, além de apresentar um botão para avançar para a proxima questão
     const UserFeedBack = () => {
         var message = '';
+        var message2 = '';
         if (isUserAnswerCorrect) {
             message = 'Você acertou!!!';
+            message2 = 'Resposta: ' + correctAnswer;
         } else {
-            message = 'Você errou\n(Resposta: ' + correctAnswer + ')';
+            message = 'Errado';
+            message2 = 'Resposta:  ' + correctAnswer;
         }
 
         return(
@@ -121,13 +135,16 @@ function QuizScreen( {route, navigation} ) {
                     <Text style={styles.userFeedBackText}>
                        {message}
                     </Text>
+                    <Text style={styles.userFeedBackText2}>
+                       {message2}
+                    </Text>
 
                     <Pressable
-                    style={[styles.userFeedBackButton, isUserAnswerCorrect==true ? {backgroundColor: '#37bb2a'} : {backgroundColor: '#e23f36'}]}
+                    style={[styles.userFeedBackButton, isUserAnswerCorrect==true ? {backgroundColor: '#45D143'} : {backgroundColor: '#E65048'}]}
                     onPress={() => nextQuestion()}
                     >
                         <Text style={styles.userFeedBackButtonText}>
-                            Avançar
+                            avançar
                         </Text>
                     </Pressable>
                 </View>
@@ -191,6 +208,12 @@ function QuizScreen( {route, navigation} ) {
     // ================================ Retorno da função principal
     return(
         <View style={styles.mainContainer}>
+            <StatusBar
+                barStyle = "dark-content"
+                hidden = {false}
+                backgroundColor = "#3166B0"
+                translucent = {false}
+                />
             <Text style={styles.counter}>
                 {currentQuestion} / {qntQuestions}
             </Text>

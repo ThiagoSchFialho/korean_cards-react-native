@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import MyTabs from './routes';
-
 import { useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_700Bold } from '@expo-google-fonts/poppins';
 import AppLoading from 'expo-app-loading';
 
@@ -20,7 +19,7 @@ const App = () => {
     <NavigationContainer>
       <MyTabs/>
     </NavigationContainer>
-  )
+  );
 };
 
 export default App;

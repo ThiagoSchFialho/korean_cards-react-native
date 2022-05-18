@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, Pressable, StatusBar } from 'react-native';
 import styles from '../styles/quizOptionsStyles';
 import { Picker } from '@react-native-picker/picker';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -76,16 +76,16 @@ function QuizOptionsScreen( {navigation} ) {
                     onValueChange={(itemValue) => setSelectedTheme(itemValue)}
                 >
 
-                    <Picker.Item label="Casa" value={0}/>
-                    <Picker.Item label="Comida" value={1}/>
-                    <Picker.Item label="Trabalho" value={2}/>
-                    <Picker.Item label="Compras" value={3}/>
-                    <Picker.Item label="Educação" value={4}/>
-                    <Picker.Item label="Transporte" value={5}/>
-                    <Picker.Item label="Pessoas" value={6}/>
-                    <Picker.Item label="Aparência" value={7}/>
-                    <Picker.Item label="Lazer" value={8}/>
-                    <Picker.Item label="Básico" value={9}/>
+                    <Picker.Item label="Básico" value={0}/>
+                    <Picker.Item label="Casa" value={1}/>
+                    <Picker.Item label="Comida" value={2}/>
+                    <Picker.Item label="Trabalho" value={3}/>
+                    <Picker.Item label="Compras" value={4}/>
+                    <Picker.Item label="Educação" value={5}/>
+                    <Picker.Item label="Transporte" value={6}/>
+                    <Picker.Item label="Pessoas" value={7}/>
+                    <Picker.Item label="Aparência" value={8}/>
+                    <Picker.Item label="Lazer" value={9}/>
                 </Picker>
             </View>
         </View>
@@ -115,7 +115,12 @@ function QuizOptionsScreen( {navigation} ) {
     // ================================ Retorno da função principal
     return(
         <View style={styles.mainContainer}>
-
+            <StatusBar
+                barStyle = "dark-content"
+                hidden = {false}
+                backgroundColor = "#3166B0"
+                translucent = {false}
+                />
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>opções do quiz</Text>
             </View>

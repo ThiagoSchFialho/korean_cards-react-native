@@ -7,11 +7,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 30,
     },
     counter: {
-        marginTop: 20,
-        paddingBottom: 5,
+        marginTop: 10,
         marginHorizontal: 60,
         color: 'white',
-        fontSize: 30,
+        fontSize: 27,
         fontFamily: 'Poppins_700Bold',
         textAlign: 'center',
         borderBottomWidth: 1,
@@ -25,7 +24,8 @@ const styles = StyleSheet.create({
 
     },
     questionWordContainer: {
-        marginVertical: 20,
+        marginTop: 10,
+        marginBottom: 30,
         alignItems: 'center',
     },
     questionWord: {
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
 
     radioInputContainer: {
         flexDirection: 'row',
-        marginBottom: 20,
+        marginBottom: 10,
     },
     radioInput: {
         width: 40,
@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
         color: 'white',
         fontFamily: 'Poppins_500Medium',
         fontSize: 20,
-        lineHeight: 46,
+        lineHeight: 40,
+        paddingVertical: 10,
     },
 
     userFeedBackContainer: {
@@ -67,24 +68,34 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 180,
         bottom: 0,
-        padding: 20,
-        alignItems: 'center'
+        padding: 10,
+        alignItems: 'center',
     },
     userFeedBackText: {
-        marginBottom: 40,
+        marginBottom: 0,
         textAlign: 'center',
         fontFamily: 'Poppins_400Regular',
         fontSize: 20,
+        textDecorationLine: 'underline',
+        color: '#242424',
+    },
+    userFeedBackText2: {
+        textAlign: 'center',
+        fontFamily: 'Poppins_500Medium',
+        fontSize: 25,
         color: '#242424',
     },
     userFeedBackButton: {
-        width: '50%',
-        borderRadius: 100,
+        width: '80%',
+        borderRadius: 50,
+        position: 'absolute',
+        bottom: 15,
+        elevation: 2
     },
     userFeedBackButtonText: {
         textTransform: 'capitalize',
         textAlign: 'center',
-        color: '#242424',
+        color: '#212121',
         lineHeight: 50,
         fontFamily: 'Poppins_700Bold',
         fontSize: 25,
@@ -118,7 +129,8 @@ const styles = StyleSheet.create({
     resultsButton: {
         width: '50%',
         borderRadius: 100,
-        backgroundColor: 'orange'
+        backgroundColor: 'orange',
+        elevation: 5,
     },
     resultsButtonText: {
         textTransform: 'capitalize',

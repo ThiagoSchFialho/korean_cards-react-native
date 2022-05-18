@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, Text, View, Pressable, FlatList } from 'react-native';
+import { ScrollView, Text, View, Pressable, FlatList, StatusBar } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from '../styles/learnListStyles';
 import { listNames, listIcons, ListData } from '../data/listsData';
@@ -96,6 +96,12 @@ function LearnListScreen({ route }) {
   // ================================ Retorno da função principal
   return(
     <View style={styles.listContainer}>
+      <StatusBar
+          barStyle = "dark-content"
+          hidden = {false}
+          backgroundColor = "#dF9246"
+          translucent = {false}
+        />
       <FlatList
         ListHeaderComponent={
         <>

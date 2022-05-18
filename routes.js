@@ -16,33 +16,31 @@ import QuizScreen from './screens/quiz';
 const Stack = createNativeStackNavigator();
 function LearnScreens() {
   return(
-    <Stack.Navigator
-      screenOptions={() => ({
-        title: '',
-        headerTitleAlign: 'center',
-        headerTransparent: true,
-        statusBarStyle: 'dark'
-      })}
-    >
-      <Stack.Screen name="Learn" component={LearnScreen}/>
-      <Stack.Screen name="WordList" component={LearnListScreen}/>
-    </Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={() => ({
+          title: '',
+          headerTransparent: true,
+        })}
+      >
+        <Stack.Screen name="Learn" component={LearnScreen}/>
+        <Stack.Screen name="WordList" component={LearnListScreen}/>
+      </Stack.Navigator>
   );
 }
 
 function PracticeScreens() {
   return(
-    <Stack.Navigator
-      screenOptions={() => ({
-        title: '',
-        headerTransparent: true,
-        statusBarStyle: 'dark',
-      })}
-    >
-      <Stack.Screen name="Practice" component={PracticeScreen}/>
-      <Stack.Screen name="CardList" component={PracticeListScreen}/>
-      <Stack.Screen name="Cards" component={CardsScreen} options={{statusBarHidden: true}}/>
-    </Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={() => ({
+            title: '',
+            headerTransparent: true,
+          })}
+        >
+          <Stack.Screen name="Practice" component={PracticeScreen}/>
+          <Stack.Screen name="CardList" component={PracticeListScreen}/>
+          <Stack.Screen name="Cards" component={CardsScreen} options={{statusBarHidden: true}}/>
+        </Stack.Navigator>
+
   );
 }
 
@@ -52,7 +50,6 @@ function QuizScreens() {
       screenOptions={() => ({
         title: '',
         headerTransparent: true,
-        statusBarStyle: 'dark',
       })}
     >
       <Stack.Screen name="QuizOptions" component={QuizOptionsScreen}/>
@@ -68,15 +65,13 @@ export default function MyTabs() {
   <Tab.Navigator
     screenOptions={({route}) => ({
       headerStyle: {
-        height: 0
+        height: 0,
       },
-
       tabBarStyle: {
         height: 60,
         borderTopWidth: 2,
-        borderTopColor: '#898989',
+        borderTopColor: '#898989'
       },
-
       tabBarLabelStyle: {
         marginTop: -3,
         fontFamily: 'Poppins_700Bold'
@@ -107,7 +102,6 @@ export default function MyTabs() {
     })}
   >
     <Tab.Screen name='Aprender' component={LearnScreens}/>
-    {/* <Tab.Screen name='Hangul' component={HangulScreen}/> */}
     <Tab.Screen name='Praticar' component={PracticeScreens}/>
     <Tab.Screen name='Quiz' component={QuizScreens}/>
   </Tab.Navigator>

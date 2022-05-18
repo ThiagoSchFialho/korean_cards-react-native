@@ -1,10 +1,13 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState }  from 'react';
+import { StatusBar } from 'react-native';
 import { ImageBackground, ScrollView, Modal, Image, Text, View, TouchableOpacity } from 'react-native';
 import styles from '../styles/themeSelectionStyles'
 
 // theme, image source
-const THEMES = [["casa", require("../assets/background/casa.jpg")],
+const THEMES = [
+                ["básico", require("../assets/background/básico.jpg")],
+                ["casa", require("../assets/background/casa.jpg")],
                 ["comida", require("../assets/background/comida.jpg")],
                 ["trabalho", require("../assets/background/trabalho.jpg")],
                 ["compras", require("../assets/background/compras.jpg")],
@@ -12,8 +15,7 @@ const THEMES = [["casa", require("../assets/background/casa.jpg")],
                 ["transporte", require("../assets/background/transporte.jpg")],
                 ["pessoas", require("../assets/background/pessoas.jpg")],
                 ["aparência", require("../assets/background/aparência.jpg")],
-                ["lazer", require("../assets/background/lazer.jpg")],
-                ["básico", require("../assets/background/básico.jpg")],
+                ["lazer", require("../assets/background/lazer.jpg")]
               ];
 
 function LearnScreen({ navigation }) {
@@ -121,6 +123,12 @@ function LearnScreen({ navigation }) {
   // ================================ Retorno da função principal
   return(
     <View>
+      <StatusBar
+          barStyle = "dark-content"
+          hidden = {false}
+          backgroundColor = "#dF9246"
+          translucent = {false}
+        />
       <ScrollView style={{backgroundColor: '#dF9246'}}>
         <View style={styles.themeMenu}>
 
