@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Pressable,TouchableWithoutFeedback, Modal, StatusBar } from 'react-native';
 import styles from '../styles/quizStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { ListData } from '../data/listsData';
 
 
@@ -205,6 +206,17 @@ function QuizScreen( {route, navigation} ) {
         </View>
     );
 
+    // ================================ Constante para configurar o botão que volta para a tela anterior
+    const Exit = () => (
+        <View>
+            <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
+                <Text style={styles.exit}>
+                    <MaterialCommunityIcons name={'arrow-left'} size={25} color={'black'}/>
+                </Text>
+            </TouchableWithoutFeedback>
+        </View>
+    );
+
     // ================================ Retorno da função principal
     return(
         <View style={styles.mainContainer}>
@@ -213,8 +225,11 @@ function QuizScreen( {route, navigation} ) {
                 hidden = {false}
                 backgroundColor = "#3166B0"
                 translucent = {false}
-                />
-            <Text style={styles.counter}>
+            />
+
+            <Exit/>
+
+            <Text style={[styles.counter, resultsVisible==true ? {marginTop: 20} : {marginTop: 20}]}>
                 {currentQuestion} / {qntQuestions}
             </Text>
 

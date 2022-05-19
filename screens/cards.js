@@ -78,6 +78,7 @@ function CardsScreen( {route, navigation} ) {
     // ================================ Constante para configurar o cabeçalho da tela
     const CardsScreenHeader = () => (
         <View>
+            <Exit/>
             <Text style={styles.title}>
                 Lista: {list}
             </Text>
@@ -238,6 +239,17 @@ function CardsScreen( {route, navigation} ) {
             </View>
             
             <StayOrLeaveCard/>
+        </View>
+    );
+
+    // ================================ Constante para configurar o botão que volta para a tela anterior
+    const Exit = () => (
+        <View>
+            <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
+                <Text style={styles.exit}>
+                    <MaterialCommunityIcons name={'arrow-left'} size={25} color={'black'}/>
+                </Text>
+            </TouchableWithoutFeedback>
         </View>
     );
 

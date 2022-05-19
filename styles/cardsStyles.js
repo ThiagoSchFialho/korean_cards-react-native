@@ -6,9 +6,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#905ca0',
         height: '100%'
     },
+    exit: {
+        position: 'absolute',
+        top: 20,
+        left: 20,
+    },
     title: {
         marginTop: 20,
         marginBottom: 30,
+        marginHorizontal: 60,
         color: 'white',
         fontSize: 20,
         fontFamily: 'Poppins_700Bold',

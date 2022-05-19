@@ -6,6 +6,10 @@ const styles = StyleSheet.create({
         height: '100%',
         paddingHorizontal: 30,
     },
+    exit: {
+        position: 'absolute',
+        top: 20,
+    },
     counter: {
         marginTop: 10,
         marginHorizontal: 60,
@@ -42,13 +46,14 @@ const styles = StyleSheet.create({
     },
 
     radioInputContainer: {
-        flexDirection: 'row',
         marginBottom: 10,
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     radioInput: {
-        width: 40,
-        height: 40,
-        borderRadius: 20,
+        width: 45,
+        height: 45,
+        borderRadius: 30,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
@@ -59,7 +64,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontFamily: 'Poppins_500Medium',
         fontSize: 20,
-        lineHeight: 40,
+        lineHeight: 45,
         paddingVertical: 10,
     },
 
@@ -143,7 +148,7 @@ const styles = StyleSheet.create({
 
     confirmButtonContainer: {
         position: 'absolute',
-        bottom: 5,
+        bottom: 15,
         width: 411,
         alignItems: 'center'
     },
