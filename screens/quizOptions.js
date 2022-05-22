@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../styles/quizOptionsStyles';
 import { Picker } from '@react-native-picker/picker';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -114,12 +115,10 @@ function QuizOptionsScreen( {navigation} ) {
 
     // ================================ Retorno da função principal
     return(
-        <View style={styles.mainContainer}>
+        <SafeAreaView style={styles.mainContainer}>
             <StatusBar
                 barStyle = "dark-content"
-                hidden = {false}
                 backgroundColor = "#3166B0"
-                translucent = {false}
                 />
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>opções do quiz</Text>
@@ -133,7 +132,7 @@ function QuizOptionsScreen( {navigation} ) {
 
             <SubmitButton/>
 
-        </View>
+        </SafeAreaView>
     )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { ImageBackground, ScrollView, Text, View, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../styles/themeSelectionStyles'
 
 // theme, image source
@@ -36,12 +37,10 @@ function PracticeScreen({navigation}) {
 
   // ================================ Retorno da função principal
   return(
-    <View>
+    <SafeAreaView>
       <StatusBar
           barStyle = "dark-content"
-          hidden = {false}
           backgroundColor = "#905ca0"
-          translucent = {false}
         />
       <ScrollView style={{backgroundColor: '#905ca0'}}>
         <View style={styles.themeMenu}>
@@ -59,7 +58,7 @@ function PracticeScreen({navigation}) {
 
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 };
 

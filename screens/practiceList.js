@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView, Text, View, Pressable, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../styles/practiceListStyles';
 import { listNames, listIcons, nWords } from '../data/listsData';
@@ -37,12 +38,10 @@ function PracticeListScreen( {route, navigation} ) {
 
   // ================================ Retorno da função principal
   return(
-    <View>
+    <SafeAreaView>
       <StatusBar
           barStyle = "dark-content"
-          hidden = {false}
           backgroundColor = "#905ca0"
-          translucent = {false}
         />
       <View style={styles.mainContainer}>
         
@@ -61,7 +60,7 @@ function PracticeListScreen( {route, navigation} ) {
         </View>
 
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

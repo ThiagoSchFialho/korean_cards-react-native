@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState }  from 'react';
 import { StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { ImageBackground, ScrollView, Modal, Image, Text, View, TouchableOpacity } from 'react-native';
 import styles from '../styles/themeSelectionStyles'
 
@@ -122,12 +123,10 @@ function LearnScreen({ navigation }) {
 
   // ================================ Retorno da função principal
   return(
-    <View>
+    <SafeAreaView>
       <StatusBar
-          barStyle = "dark-content"
-          hidden = {false}
-          backgroundColor = "#dF9246"
-          translucent = {false}
+          barStyle="dark-content"
+          backgroundColor="#dF9246"
         />
       <ScrollView style={{backgroundColor: '#dF9246'}}>
         <View style={styles.themeMenu}>
@@ -147,7 +146,7 @@ function LearnScreen({ navigation }) {
 
         </View>
       </ScrollView>
-    </View> 
+    </SafeAreaView> 
   );
 };
 

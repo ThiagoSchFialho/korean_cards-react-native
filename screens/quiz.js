@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable,TouchableWithoutFeedback, Modal, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from '../styles/quizStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -219,12 +220,10 @@ function QuizScreen( {route, navigation} ) {
 
     // ================================ Retorno da função principal
     return(
-        <View style={styles.mainContainer}>
+        <SafeAreaView style={styles.mainContainer}>
             <StatusBar
                 barStyle = "dark-content"
-                hidden = {false}
                 backgroundColor = "#3166B0"
-                translucent = {false}
             />
 
             <Exit/>
@@ -271,7 +270,7 @@ function QuizScreen( {route, navigation} ) {
                 </View>
             </View>
 
-        </View>
+        </SafeAreaView>
     )
 }
 

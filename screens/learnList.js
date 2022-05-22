@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ScrollView, Text, View, Pressable, FlatList, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from '../styles/learnListStyles';
 import { listNames, listIcons, ListData } from '../data/listsData';
@@ -95,12 +96,10 @@ function LearnListScreen({ route }) {
 
   // ================================ Retorno da função principal
   return(
-    <View style={styles.listContainer}>
+    <SafeAreaView style={styles.listContainer}>
       <StatusBar
           barStyle = "dark-content"
-          hidden = {false}
           backgroundColor = "#dF9246"
-          translucent = {false}
         />
       <FlatList
         ListHeaderComponent={
@@ -131,7 +130,7 @@ function LearnListScreen({ route }) {
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
