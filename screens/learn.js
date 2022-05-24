@@ -1,9 +1,12 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useState }  from 'react';
-import { StatusBar } from 'react-native';
+import { ImageBackground, ScrollView, Modal, Image, Text, View, TouchableOpacity, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ImageBackground, ScrollView, Modal, Image, Text, View, TouchableOpacity } from 'react-native';
-import styles from '../styles/themeSelectionStyles'
+import { useIsFocused } from '@react-navigation/native';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import styles from '../styles/themeSelectionStyles';
+
+
 
 // theme, image source
 const THEMES = [
@@ -20,6 +23,7 @@ const THEMES = [
               ];
 
 function LearnScreen({ navigation }) {
+
   const [wellcomeMessageVisible, setWellcomeMessageVisible] = useState(true);
   const [isFirstOpen, setIsFirstOpen] = useState(false);
 
@@ -121,13 +125,18 @@ function LearnScreen({ navigation }) {
   // Chamada da constante que faz o resgate das informações do armazenamento assíncrono
   GetData();
 
+  // usado para renderizar a status bar corretamente
+  function FocusAwareStatusBar(props) {
+    const isFocused = useIsFocused();
+  
+    return isFocused ? <StatusBar {...props} /> : null;
+  }
+
   // ================================ Retorno da função principal
   return(
     <SafeAreaView>
-      <StatusBar
-          barStyle="dark-content"
-          backgroundColor="#dF9246"
-        />
+      <FocusAwareStatusBar hidden={false} barStyle="dark-content" backgroundColor="#dF9246" />
+
       <ScrollView style={{backgroundColor: '#dF9246'}}>
         <View style={styles.themeMenu}>
 

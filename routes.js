@@ -104,16 +104,15 @@ function MyTabs() {
 
 export default function MyRoutes() {
   return (
-    <Stack.Navigator
-      screenOptions={() => ({
-        title: '',
-        headerShown: false
-      })}
-    >
-      <Stack.Screen name="Home" component={MyTabs}/>
-      <Stack.Screen name="Cards" component={CardsScreen} options={{statusBarHidden: true}}/>
-      <Stack.Screen name="QuizGame" component={QuizScreen} options={{statusBarHidden: true}}/>
-    </Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={() => ({
+          title: '',
+          headerShown: false
+        })}
+      >
+        <Stack.Screen name="Home" component={MyTabs}/>
+        <Stack.Screen name="Cards" component={CardsScreen}/>
+        <Stack.Screen name="QuizGame" component={QuizScreen}/>
+      </Stack.Navigator>
   );
-}
-
+};

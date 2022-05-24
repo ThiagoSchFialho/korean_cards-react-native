@@ -1,9 +1,14 @@
 import React from 'react';
 import { ScrollView, Text, View, Pressable, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useIsFocused } from '@react-navigation/native';
+
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../styles/practiceListStyles';
+
 import { listNames, listIcons, nWords } from '../data/listsData';
+
+
 
 function PracticeListScreen( {route, navigation} ) {
 
@@ -36,13 +41,18 @@ function PracticeListScreen( {route, navigation} ) {
     </View>
   );
 
+  // usado para renderizar a status bar corretamente
+  function FocusAwareStatusBar(props) {
+    const isFocused = useIsFocused();
+  
+    return isFocused ? <StatusBar {...props} /> : null;
+  }
+
   // ================================ Retorno da função principal
   return(
     <SafeAreaView>
-      <StatusBar
-          barStyle = "dark-content"
-          backgroundColor = "#905ca0"
-        />
+      <FocusAwareStatusBar hidden={false} barStyle="dark-content" backgroundColor="#905ca0" />
+
       <View style={styles.mainContainer}>
         
         <View style={styles.themeTitleContainer}>

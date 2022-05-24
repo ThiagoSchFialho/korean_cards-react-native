@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable,TouchableWithoutFeedback, Modal, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 import styles from '../styles/quizStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import { ListData } from '../data/listsData';
+
 
 
 var pastQuestionWords = [];
@@ -221,10 +224,7 @@ function QuizScreen( {route, navigation} ) {
     // ================================ Retorno da função principal
     return(
         <SafeAreaView style={styles.mainContainer}>
-            <StatusBar
-                barStyle = "dark-content"
-                backgroundColor = "#3166B0"
-            />
+            <StatusBar hidden={true} />
 
             <Exit/>
 
@@ -271,7 +271,7 @@ function QuizScreen( {route, navigation} ) {
             </View>
 
         </SafeAreaView>
-    )
-}
+    );
+};
 
 export default QuizScreen;

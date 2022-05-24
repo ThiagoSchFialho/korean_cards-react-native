@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import styles from '../styles/quizOptionsStyles';
+import { useIsFocused } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
+
+import styles from '../styles/quizOptionsStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+
 
 function QuizOptionsScreen( {navigation} ) {
 
@@ -113,13 +117,18 @@ function QuizOptionsScreen( {navigation} ) {
         </View>
     );
 
+    // usado para renderizar a status bar corretamente
+    function FocusAwareStatusBar(props) {
+        const isFocused = useIsFocused();
+      
+        return isFocused ? <StatusBar {...props} /> : null;
+      }
+
     // ================================ Retorno da função principal
     return(
         <SafeAreaView style={styles.mainContainer}>
-            <StatusBar
-                barStyle = "dark-content"
-                backgroundColor = "#3166B0"
-                />
+            <FocusAwareStatusBar hidden={false} barStyle="dark-content" backgroundColor="#3166B0" />
+
             <View style={styles.titleContainer}>
                 <Text style={styles.title}>opções do quiz</Text>
             </View>
@@ -133,7 +142,7 @@ function QuizOptionsScreen( {navigation} ) {
             <SubmitButton/>
 
         </SafeAreaView>
-    )
-}
+    );
+};
 
 export default QuizOptionsScreen;

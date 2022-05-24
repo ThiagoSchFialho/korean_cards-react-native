@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Animated, View, Text, Pressable, Modal, TouchableWithoutFeedback, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../styles/cardsStyles';
+
 import { lists } from '../data/listsData';
+
+
 
 function CardsScreen( {route, navigation} ) {
 
@@ -257,9 +261,8 @@ function CardsScreen( {route, navigation} ) {
     // ================================ Retorno da função principal
     return(
         <SafeAreaView style={styles.mainView}>
-            <StatusBar
-                hidden={true}
-            />
+            <StatusBar hidden={true} />
+
             <CardsScreenHeader/>
             <Card word={word} translation={translation}/>
             <ControlButtons/>

@@ -1,8 +1,11 @@
 import React from 'react';
-import { StatusBar } from 'react-native';
-import { ImageBackground, ScrollView, Text, View, TouchableOpacity } from 'react-native';
+import { ImageBackground, ScrollView, Text, View, TouchableOpacity, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import styles from '../styles/themeSelectionStyles'
+import { useIsFocused } from '@react-navigation/native';
+
+import styles from '../styles/themeSelectionStyles';
+
+
 
 // theme, image source
 const THEMES = [["básico", require("../assets/background/básico.jpg")],
@@ -35,13 +38,18 @@ function PracticeScreen({navigation}) {
     )
   }
 
+  // usado para renderizar a status bar corretamente
+  function FocusAwareStatusBar(props) {
+    const isFocused = useIsFocused();
+  
+    return isFocused ? <StatusBar {...props} /> : null;
+  }
+
   // ================================ Retorno da função principal
   return(
     <SafeAreaView>
-      <StatusBar
-          barStyle = "dark-content"
-          backgroundColor = "#905ca0"
-        />
+      <FocusAwareStatusBar hidden={false} barStyle="dark-content" backgroundColor="#905ca0" />
+
       <ScrollView style={{backgroundColor: '#905ca0'}}>
         <View style={styles.themeMenu}>
 

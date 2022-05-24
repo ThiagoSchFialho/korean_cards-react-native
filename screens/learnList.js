@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { ScrollView, Text, View, Pressable, FlatList, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { useIsFocused } from '@react-navigation/native';
+
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from '../styles/learnListStyles';
+
 import { listNames, listIcons, ListData } from '../data/listsData';
+
+
 
 // ================================ Constante para configurar como será renderizado cada item na FlatList
 const Item = ({ word, translation }) => (
@@ -92,15 +97,19 @@ function LearnListScreen({ route }) {
       return(null);
     }
   }
-  
 
+  // usado para renderizar a status bar corretamente
+  function FocusAwareStatusBar(props) {
+    const isFocused = useIsFocused();
+  
+    return isFocused ? <StatusBar {...props} /> : null;
+  }
+  
   // ================================ Retorno da função principal
   return(
     <SafeAreaView style={styles.listContainer}>
-      <StatusBar
-          barStyle = "dark-content"
-          backgroundColor = "#dF9246"
-        />
+      <FocusAwareStatusBar hidden={false} barStyle="dark-content" backgroundColor="#dF9246" />
+
       <FlatList
         ListHeaderComponent={
         <>

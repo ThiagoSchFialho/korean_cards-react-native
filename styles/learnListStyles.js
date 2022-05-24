@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({    
     listContainer: {
-        backgroundColor: '#dF9246'
+        backgroundColor: '#dF9246',
     },
 
     headerContainer: {
