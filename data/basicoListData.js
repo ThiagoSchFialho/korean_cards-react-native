@@ -1,3 +1,206 @@
+export const HANGUL = [
+    {
+        id: "1",
+        word: "a",
+        translation: "ㅏ",
+    },
+    {
+        id: "2",
+        word: "ya",
+        translation: "ㅑ",
+    },
+    {
+        id: "3",
+        word: "ó",
+        translation: "ㅓ",
+    },
+    {
+        id: "4",
+        word: "yó",
+        translation: "ㅕ",
+    },
+    {
+        id: "5",
+        word: "ô",
+        translation: "ㅗ",
+    },
+    {
+        id: "6",
+        word: "yô",
+        translation: "ㅛ",
+    },
+    {
+        id: "7",
+        word: "u",
+        translation: "ㅜ",
+    },
+    {
+        id: "8",
+        word: "yu ",
+        translation: "ㅠ",
+    },
+    {
+        id: "9",
+        word: "eu ('ugh')",
+        translation: "ㅡ",
+    },
+    {
+        id: "10",
+        word: "i",
+        translation: "ㅣ",
+    },
+    {
+        id: "11",
+        word: "é",
+        translation: "ㅐ",
+    },
+    {
+        id: "12",
+        word: "yé",
+        translation: "ㅒ",
+    },
+    {
+        id: "13",
+        word: "ê",
+        translation: "ㅔ",
+    },
+    {
+        id: "14",
+        word: "yê",
+        translation: "ㅖ",
+    },
+    {
+        id: "15",
+        word: "wa",
+        translation: "ㅘ",
+    },
+    {
+        id: "16",
+        word: "wé",
+        translation: "ㅙ",
+    },
+    {
+        id: "17",
+        word: "we",
+        translation: "ㅚ",
+    },
+    {
+        id: "18",
+        word: "wi",
+        translation: "ᅱ",
+    },
+    {
+        id: "19",
+        word: "wê",
+        translation: "ㅞ",
+    },
+    {
+        id: "20",
+        word: "wô",
+        translation: "ㅝ",
+    },
+    {
+        id: "21",
+        word: "ui",
+        translation: "ㅢ",
+    },
+    {
+        id: "22",
+        word: "b/p",
+        translation: "ㅂ",
+    },
+    {
+        id: "23",
+        word: "j/ch",
+        translation: "ㅈ",
+    },
+    {
+        id: "24",
+        word: "d",
+        translation: "ㄷ",
+    },
+    {
+        id: "25",
+        word: "g/k",
+        translation: "ㄱ",
+    },
+    {
+        id: "26",
+        word: "s",
+        translation: "ㅅ",
+    },
+    {
+        id: "27",
+        word: "m",
+        translation: "ㅁ",
+    },
+    {
+        id: "28",
+        word: "n",
+        translation: "ㄴ",
+    },
+    {
+        id: "29",
+        word: "mudo / ng",
+        translation: "ㅇ",
+    },
+    {
+        id: "30",
+        word: "l/r",
+        translation: "ㄹ",
+    },
+    {
+        id: "31",
+        word: "h",
+        translation: "ㅎ",
+    },
+    {
+        id: "32",
+        word: "kh",
+        translation: "ㅋ",
+    },
+    {
+        id: "33",
+        word: "t",
+        translation: "ㅌ",
+    },
+    {
+        id: "34",
+        word: "ch",
+        translation: "ㅊ",
+    },
+    {
+        id: "35",
+        word: "p",
+        translation: "ㅍ",
+    },
+    {
+        id: "36",
+        word: "pp",
+        translation: "ㅃ",
+    },
+    {
+        id: "37",
+        word: "jj",
+        translation: "ㅉ",
+    },
+    {
+        id: "38",
+        word: "tt",
+        translation: "ㄸ",
+    },
+    {
+        id: "39",
+        word: "kk",
+        translation: "ㄲ",
+    },
+    {
+        id: "40",
+        word: "ss",
+        translation: "ㅆ",
+    }
+];
+
 export const CORES = [
     {
         id: "1",

@@ -1,4 +1,4 @@
-import { CORES, ANIMAIS, NUMEROS, SINOCOREANOS } from './basicoListData';
+import { HANGUL, CORES, ANIMAIS, NUMEROS, SINOCOREANOS } from './basicoListData';
 import { CASA, COZINHA, SALADEESTAR, QUARTO, BANHEIRO } from './casaListData'
 import { FRUTAS, LEGUMES, BEBIDAS, PADARIA, SOBREMESAS } from './comidaListData';
 import { ESCRITORIO, COMPUTADOR, PROFISSOES } from './trabalhoListData';
@@ -12,7 +12,7 @@ import { PRAIA, ACAMPAMENTO, TEATRO, JOGOS } from './lazerListData';
 // Usado em learnList.js e practiceList.js
 // Nomes das listas
 export var listNames = [
-    ['cores', 'animais', 'números', 'sino-coreanos'],
+    ['hangul', 'cores', 'animais', 'números', 'sino-coreanos'],
     ['casa', 'cozinha', 'sala de estar', 'quarto', 'banheiro'],
     ['frutas', 'legumes', 'bebidas', 'padaria', 'sobremesas'],
     ['escritório', 'computador', 'profissões'],
@@ -27,7 +27,7 @@ export var listNames = [
 // Usado em learnList.js e practiceList.js
 // Icones das listas
 export var listIcons = [
-    ['palette', 'dog-side', 'numeric', 'numeric'],
+    ['syllabary-hangul', 'palette', 'dog-side', 'numeric', 'numeric'],
     ['home', 'fridge', 'television-classic', 'bed', 'shower'],
     ['food-apple', 'carrot', 'beer', 'baguette', 'cake'],
     ['city-variant', 'desktop-tower-monitor', 'briefcase'],
@@ -42,7 +42,7 @@ export var listIcons = [
 // Usado em learnList.js e quiz.js
 // Constantes que guardam o conteúdo das listas
 export var ListData = [
-    [CORES, ANIMAIS, NUMEROS, SINOCOREANOS],
+    [HANGUL, CORES, ANIMAIS, NUMEROS, SINOCOREANOS],
     [CASA, COZINHA, SALADEESTAR, QUARTO, BANHEIRO],
     [FRUTAS, LEGUMES, BEBIDAS, PADARIA, SOBREMESAS],
     [ESCRITORIO, COMPUTADOR, PROFISSOES],
@@ -57,7 +57,7 @@ export var ListData = [
 // Usado em practiceList.js
 // Número de palavras em cada lista de palavras
 export var nWords = [
-    [13, 16, 28, 33],
+    [40, 13, 16, 28, 33],
     [10, 13, 10, 10, 11],
     [12, 10, 9, 6, 8],
     [14, 9, 11],
@@ -71,6 +71,7 @@ export var nWords = [
 
 // Usado em cards.js
 export const lists = {
+    "hangul" : HANGUL,
     "cores" : CORES,
     "animais" : ANIMAIS,
     "números" : NUMEROS,

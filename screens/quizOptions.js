@@ -80,7 +80,6 @@ function QuizOptionsScreen( {navigation} ) {
                     selectedValue={selectedTheme}
                     onValueChange={(itemValue) => setSelectedTheme(itemValue)}
                 >
-
                     <Picker.Item label="Básico" value={0}/>
                     <Picker.Item label="Casa" value={1}/>
                     <Picker.Item label="Comida" value={2}/>

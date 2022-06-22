@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable,TouchableWithoutFeedback, Modal, StatusBar } from 'react-native';
+import { View, Text, Pressable,TouchableWithoutFeedback, Modal, StatusBar, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import styles from '../styles/quizStyles';
@@ -138,12 +138,11 @@ function QuizScreen( {route, navigation} ) {
             >
                 <View style={[styles.userFeedBackContainer, isUserAnswerCorrect==true ? {backgroundColor: '#b2ecac'} : {backgroundColor: '#f2aaa6'}]}>
                     <Text style={styles.userFeedBackText}>
-                       {message}
+                        {message}
                     </Text>
                     <Text style={styles.userFeedBackText2}>
-                       {message2}
+                        {message2}
                     </Text>
-
                     <Pressable
                     style={[styles.userFeedBackButton, isUserAnswerCorrect==true ? {backgroundColor: '#45D143'} : {backgroundColor: '#E65048'}]}
                     onPress={() => nextQuestion()}
